@@ -1,5 +1,6 @@
 package interaction;
 
+import Gui.Board4_4;
 import com.opencsv.exceptions.CsvException;
 import csv.OpenCsvData;
 
@@ -51,6 +52,15 @@ public class SelectBoardSize extends Gui.Gui {
         if(e.getSource() == startGame){
             String ktoryBoard = (String) cb1.getSelectedItem();
             String ktoraPlansza = (String) cb2.getSelectedItem();
+            String plansza = openCsvData.getBoardDescription(ktoraPlansza);
+            if(ktoryBoard.equals("Easy")){
+                new Board4_4(plansza);
+            }else if(ktoryBoard.equals("Medium")){
+
+            }
+            else if(ktoryBoard.equals("Hard")){
+
+            }
 
 
             setVisible(false);

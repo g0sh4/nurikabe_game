@@ -33,13 +33,22 @@ public class Board4_4 extends Gui implements ActionListener {
     JButton b15=new JButton();
     JButton b16=new JButton();
     public JButton[] listaGuzikow = {b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,b11,b12,b13,b14,b15,b16};
-    public Board4_4(){
+    public Board4_4(String plansza){
         super();
         panelZMenuDol.setLayout(new GridLayout(1,2));
         panelzMenuGora.setLayout(new GridLayout(1,3));
         panelZGuzikami.setLayout(new GridLayout(4,4));
 
         //tutaj petla z dodawaniem wartosci
+        for(int i=0;i<plansza.length();i++){
+            if(plansza.toCharArray()[i] == '0'){
+                listaGuzikow[i].setBackground(Color.WHITE);
+            }else{
+                listaGuzikow[i].setText(String.valueOf(plansza.toCharArray()[i]));
+                listaGuzikow[i].setBorderPainted( false );
+                listaGuzikow[i].setFocusPainted( false );
+            }
+        }
 
 
         panelZGuzikami.add(b1);panelZGuzikami.add(b2);panelZGuzikami.add(b3);panelZGuzikami.add(b4);
