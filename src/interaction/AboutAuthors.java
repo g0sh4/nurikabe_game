@@ -17,7 +17,5 @@ public class AboutAuthors {
                 JOptionPane.INFORMATION_MESSAGE, new ImageIcon( "brain.png" ));
 
     }
-    public static void main(String[] args) {
-        new AboutAuthors();
-    }
+
 }

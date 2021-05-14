@@ -69,18 +69,20 @@ public class StartGame extends Gui.Gui{
         String event = e.getActionCommand();
     if(event.equals("WYBÓR PLANSZY")){
 
-    }if(event.equals("USTAWIENIA")){
-
-        }
-    if(event.equals("JAK GRAĆ?")){
+    }
+    if(event.equals("USTAWIENIA")){
 
     }
+    if(event.equals("JAK GRAĆ?")){
+        new GameRules();
+    }
     if(event.equals("O AUTORACH")){
-
+        new AboutAuthors();
     }
     if(event.equals("ZAMKNIJ GRE")){
 
     }
+
     }
     public static void main(String[] args) {
         new StartGame();

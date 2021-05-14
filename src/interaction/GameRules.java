@@ -19,7 +19,5 @@ public class GameRules {
                 JOptionPane.INFORMATION_MESSAGE, new ImageIcon( "joystick.png" ));
 
     }
-    public static void main(String[] args) {
-        new GameRules();
-    }
+
 }
