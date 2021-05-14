@@ -42,6 +42,6 @@ public class OpenCsvData {
                 index = csvData.indexOf(x);
             }
         }
-        return csvData.get(index)[3];
+        return csvData.get(index)[2];
     }
 }
