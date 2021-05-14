@@ -33,7 +33,7 @@ public class SelectBoardSize extends Gui.Gui {
     JPanel panel = new JPanel();
 
     public SelectBoardSize(){
-
+        setTitle("Wybór planszy");
         cb1.addActionListener(this::actionPerformed);
         cb2.addActionListener(this::actionPerformed);
         startGame.addActionListener(this::actionPerformed);
