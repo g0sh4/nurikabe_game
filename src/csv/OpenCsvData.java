@@ -14,7 +14,8 @@ import java.util.List;
 
 public class OpenCsvData {
 
-    public List<String[]> csvData;
+    public List<String[]> csvData = new ArrayList<>();
+
 
     public OpenCsvData(String fileName) throws IOException, CsvException {
         FileReader fr = new FileReader(new File(fileName));
@@ -22,7 +23,14 @@ public class OpenCsvData {
         CSVReader csvReader = new CSVReaderBuilder(fr)
                                     .withCSVParser(praser)
                                     .build();
-        csvData = new ArrayList<>();
         csvData = csvReader.readAll();
+    }
+
+    public ArrayList<String> getBoardNames() {
+        ArrayList<String> boardNames = new ArrayList<>();
+        for (int i = 1; i < csvData.size(); i++) {
+            boardNames.add(csvData.get(i)[0]);
+        }
+        return boardNames;
     }
 }
