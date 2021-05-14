@@ -68,7 +68,7 @@ public class StartGame extends Gui.Gui{
     public void actionPerformed(ActionEvent e){
         String event = e.getActionCommand();
     if(event.equals("WYBÓR PLANSZY")){
-        new Board4_4();
+        new SelectBoardSize();
     }if(event.equals("USTAWIENIA")){
 
     }
