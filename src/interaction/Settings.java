@@ -62,7 +62,7 @@ public class Settings extends Gui {
                 path = choose.getSelectedFile().getPath();
                 JOptionPane.showMessageDialog(null, "Wybrano taką ścieżkę zapisu: "+path);
             }catch (Exception exception){
-                JOptionPane.showMessageDialog(null, "Nie wybrano ścieżki");
+                JOptionPane.showMessageDialog(null, "Nie wybrano ścieżki zapisu !");
             }
 
 
