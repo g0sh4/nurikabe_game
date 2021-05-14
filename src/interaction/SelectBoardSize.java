@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class SelectBoardSize extends Gui.Gui {
+    OpenCsvData openCsvData;
     {
         try {
             openCsvData = new OpenCsvData("src/csv/boards.csv");
@@ -21,17 +22,13 @@ public class SelectBoardSize extends Gui.Gui {
 
     String[] wybor = {"Easy","Medium","Hard"};
     public JComboBox cb1 = new JComboBox(wybor);
-    public JComboBox cb2 = new JComboBox(wybor);
+    public JComboBox cb2 = new JComboBox(openCsvData.getBoardNames());
 
     public JLabel wybierzPoziom = new JLabel("Wybierz poziom");
     public JLabel wybierzPlansze = new JLabel("Wybierz plansze");
 
 
     public JButton startGame = new JButton("Start game");
-    OpenCsvData openCsvData;
-
-
-
     JPanel panel = new JPanel();
 
     public SelectBoardSize(){
@@ -53,6 +50,10 @@ public class SelectBoardSize extends Gui.Gui {
     public void actionPerformed(ActionEvent e){
         if(e.getSource() == startGame){
             String ktoryBoard = (String) cb1.getSelectedItem();
+            String ktoraPlansza = (String) cb2.getSelectedItem();
+
+
+            setVisible(false);
         }
         
     }
