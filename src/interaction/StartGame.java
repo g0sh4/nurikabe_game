@@ -71,15 +71,16 @@ public class StartGame extends Gui.Gui{
         new Board4_4();
     }if(event.equals("USTAWIENIA")){
 
-        }
+    }
     if(event.equals("JAK GRAĆ?")){
-
+        new GameRules();
     }
     if(event.equals("O AUTORACH")){
-
+        new AboutAuthors();
     }
     if(event.equals("ZAMKNIJ GRE")){
 
     }
+
     }
 }
