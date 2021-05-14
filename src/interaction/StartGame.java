@@ -1,5 +1,6 @@
 package interaction;
 
+import Gui.Board4_4;
 import Gui.GuiMenu;
 
 import javax.swing.*;
@@ -67,7 +68,7 @@ public class StartGame extends Gui.Gui{
     public void actionPerformed(ActionEvent e){
         String event = e.getActionCommand();
     if(event.equals("WYBÓR PLANSZY")){
-
+        new Board4_4();
     }if(event.equals("USTAWIENIA")){
 
         }

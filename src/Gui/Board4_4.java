@@ -7,11 +7,15 @@ import java.awt.event.ActionListener;
 
 public class Board4_4 extends Gui implements ActionListener {
     JPanel panel = new JPanel();
-    JPanel panelZGuzikami = new JPanel();
-    JPanel panelzMenu = new JPanel();
+    JPanel panelZMenuDol = new JPanel();
+    JPanel panelZGuzikami= new JPanel();
+    JPanel panelzMenuGora = new JPanel();
     JButton help = new JButton("help");
     JButton save = new JButton("save");
     JButton check = new JButton("check");
+    JButton print = new JButton("print");
+    JButton reset = new JButton("reset");
+
     JButton b1=new JButton("1");
     JButton b2=new JButton("2");
     JButton b3=new JButton("3");
@@ -31,16 +35,19 @@ public class Board4_4 extends Gui implements ActionListener {
     public JButton[] lista = {b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,b11,b12,b13,b14,b15,b16};
     public Board4_4(){
         super();
-        panelzMenu.setLayout(new GridLayout(1,3));
+        panelZMenuDol.setLayout(new GridLayout(1,2));
+        panelzMenuGora.setLayout(new GridLayout(1,3));
         panelZGuzikami.setLayout(new GridLayout(4,4));
         panelZGuzikami.add(b1);panelZGuzikami.add(b2);panelZGuzikami.add(b3);panelZGuzikami.add(b4);
         panelZGuzikami.add(b5);panelZGuzikami.add(b6);panelZGuzikami.add(b7);panelZGuzikami.add(b8);
         panelZGuzikami.add(b9);panelZGuzikami.add(b10);panelZGuzikami.add(b11);panelZGuzikami.add(b12);
         panelZGuzikami.add(b13);panelZGuzikami.add(b14);panelZGuzikami.add(b15);panelZGuzikami.add(b16);
-        panelzMenu.add(check);panelzMenu.add(save);panelzMenu.add(help);
+        panelzMenuGora.add(check);panelzMenuGora.add(save);panelzMenuGora.add(help);
+        panelZMenuDol.add(reset);panelZMenuDol.add(print);
         panel.setLayout(new BorderLayout());
         panel.add(panelZGuzikami,BorderLayout.CENTER);
-        panel.add(panelzMenu,BorderLayout.NORTH);
+        panel.add(panelzMenuGora,BorderLayout.NORTH);
+        panel.add(panelZMenuDol,BorderLayout.SOUTH);
         add(panel);
         setVisible(true);
     }

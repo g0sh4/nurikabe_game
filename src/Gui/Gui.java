@@ -19,7 +19,7 @@ public class Gui extends JFrame{
         super("Nurikabe");
 
 
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(frameWidth, frameHeight);
         setLocation((int) (width-frameWidth)/2, (int) (height-frameHeight)/2);
     }
