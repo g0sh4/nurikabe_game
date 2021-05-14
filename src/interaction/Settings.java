@@ -57,8 +57,26 @@ public class Settings extends Gui {
             choose.setCurrentDirectory(new File("."));
             choose.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
             choose.showOpenDialog(panel);
-            path = choose.getSelectedFile().getPath();
-            JOptionPane.showMessageDialog(null, "Wybrano taką ścieżkę zapisu: "+path);
+
+            try{
+                path = choose.getSelectedFile().getPath();
+                JOptionPane.showMessageDialog(null, "Wybrano taką ścieżkę zapisu: "+path);
+            }catch (Exception exception){
+                JOptionPane.showMessageDialog(null, "Nie wybrano ścieżki zapisu !");
+            }
+
+
+            //if(choose.showOpenDialog(panel)==JFileChooser.APPROVE_OPTION){
+               // path = choose.getSelectedFile().getPath();
+               // JOptionPane.showMessageDialog(null, "Wybrano taką ścieżkę zapisu: "+path);
+               // choose.cancelSelection();
+           // }
+            //if(choose.showOpenDialog(panel)==JFileChooser.CANCEL_OPTION){
+             //   JOptionPane.showMessageDialog(null, "Brak wybranej ścieżki zapisu do wydruku.");
+           // }
+
+
+
         }
         if(comboBox.getSelectedItem()=="ON"){
             autozapis = true;
@@ -68,9 +86,6 @@ public class Settings extends Gui {
         if(comboBox.getSelectedItem()=="OFF"){
             autozapis = false;
             JOptionPane.showMessageDialog(null, "Wyłączono autozapis.");
-        }
-        if(comboBox.getSelectedItem()==" "){
-            JOptionPane.showMessageDialog(null, "Zdecyduj o zapisie, zanim rozpoczniesz grę.");
         }
     }
 
