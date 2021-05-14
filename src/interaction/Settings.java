@@ -63,10 +63,14 @@ public class Settings extends Gui {
         if(comboBox.getSelectedItem()=="ON"){
             autozapis = true;
             JOptionPane.showMessageDialog(null, "Włączono autozapis.");
+
         }
         if(comboBox.getSelectedItem()=="OFF"){
             autozapis = false;
             JOptionPane.showMessageDialog(null, "Wyłączono autozapis.");
+        }
+        if(comboBox.getSelectedItem()==" "){
+            JOptionPane.showMessageDialog(null, "Zdecyduj o zapisie, zanim rozpoczniesz grę.");
         }
     }
 
