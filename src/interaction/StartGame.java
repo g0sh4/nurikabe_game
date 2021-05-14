@@ -4,8 +4,9 @@ import Gui.GuiMenu;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 
-public class StartGame extends JPanel {
+public class StartGame extends Gui.Gui{
     public JPanel panelPicture;
     public JPanel panelButtons;
 
@@ -17,6 +18,7 @@ public class StartGame extends JPanel {
 
 
     public StartGame(){
+        super();
         ImageIcon icon = new ImageIcon( "nurikabe_4.png" );
         JLabel label = new JLabel();
 
@@ -27,10 +29,20 @@ public class StartGame extends JPanel {
         panelPicture.add(label);
 
         wyborPlanszy = new JButton( "WYBÓR PLANSZY" );
+        wyborPlanszy.addActionListener(this::actionPerformed);
+
         ustawieniaButton = new JButton( "USTAWIENIA" );
+        ustawieniaButton.addActionListener(this::actionPerformed);
+
         jakGrac = new JButton( "JAK GRAĆ?" );
+        jakGrac.addActionListener(this::actionPerformed);
+
         autorzyButton = new JButton( "O AUTORACH" );
+        autorzyButton.addActionListener(this::actionPerformed);
+
         zamknijButton = new JButton( "ZAMKNIJ GRE" );
+        zamknijButton.addActionListener(this::actionPerformed);
+
         panelButtons = new JPanel();
         panelButtons.setLayout(new GridLayout( 5,1 ,9,9));
         panelButtons.add(wyborPlanszy);
@@ -41,19 +53,36 @@ public class StartGame extends JPanel {
         panelButtons.setBorder(BorderFactory.createEmptyBorder(10,100,10,100));
         panelButtons.setBackground(new Color(253,245,230));
 
-        JFrame frame = new JFrame( "Nurikabe" );
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.add(panelPicture, BorderLayout.NORTH);
-        frame.add(panelButtons, BorderLayout.CENTER);
+        //JFrame frame = new JFrame( "Nurikabe" );
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        add(panelPicture, BorderLayout.NORTH);
+        add(panelButtons, BorderLayout.CENTER);
 
 
-        frame.getContentPane().setBackground(Color.pink);
-        frame.pack();
-        frame.setVisible(true);
+        //setMinimumSize(new Dimension(400, 600));
+        getContentPane().setBackground(Color.pink);
+        pack();
+        setVisible(true);
 
     }
-    public static void main(String[] args) {
+    public void actionPerformed(ActionEvent e){
+        String event = e.getActionCommand();
+    if(event.equals("WYBÓR PLANSZY")){
 
+    }if(event.equals("USTAWIENIA")){
+
+        }
+    if(event.equals("JAK GRAĆ?")){
+
+    }
+    if(event.equals("O AUTORACH")){
+
+    }
+    if(event.equals("ZAMKNIJ GRE")){
+
+    }
+    }
+    public static void main(String[] args) {
         new StartGame();
     }
 

@@ -19,10 +19,10 @@ public class GuiMenu extends Gui implements ActionListener {
         help.addActionListener(this::actionPerformed);
 
 
-        frame.getContentPane().add(BorderLayout.WEST, startGame);
-        frame.getContentPane().add(BorderLayout.CENTER, help);
+        getContentPane().add(BorderLayout.WEST, startGame);
+        getContentPane().add(BorderLayout.CENTER, help);
 
-        frame.setVisible(true);
+        setVisible(true);
     }
 
     @Override
