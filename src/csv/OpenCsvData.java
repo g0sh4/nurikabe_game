@@ -34,4 +34,14 @@ public class OpenCsvData {
         String[] names = boardNames.toArray(new String[0]);
         return names;
     }
+
+    public String getBoardDescription(String name) {
+        int index = -1;
+        for (String[] x: csvData) {
+            if (x[0].equals(name)){
+                index = csvData.indexOf(x);
+            }
+        }
+        return csvData.get(index)[3];
+    }
 }

@@ -13,6 +13,5 @@ public class Main {
         OpenCsvData openCsvData = new OpenCsvData("src/csv/boards.csv");
         System.out.println(openCsvData.csvData.get(1)[2]);
         System.out.println(openCsvData.getBoardNames());
-
     }
 }
