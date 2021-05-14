@@ -95,12 +95,12 @@ public class Board4_4 extends Gui implements ActionListener {
         }
 
     }
-    public static void change(ArrayList<JButton> listaGuzikow,char[] wartosciUzytkownika){
-        listaGuzikow.get(0).setBackground(wartosciUzytkownika[0] == '0' ? Color.BLACK : Color.WHITE);
-        if(wartosciUzytkownika[0] == '0'){
-            wartosciUzytkownika[0] = 'B';
+    public static void change(ArrayList<JButton> listaGuzikow,char[] wartosciUzytkownika,int ktory){
+        listaGuzikow.get(ktory).setBackground(wartosciUzytkownika[ktory] == '0' ? Color.BLACK : Color.WHITE);
+        if(wartosciUzytkownika[ktory] == '0'){
+            wartosciUzytkownika[ktory] = 'B';
         }else{
-            wartosciUzytkownika[0] = '0';
+            wartosciUzytkownika[ktory] = '0';
         }
 
     }
@@ -119,9 +119,10 @@ public class Board4_4 extends Gui implements ActionListener {
             for(int i=0; i < 16; i++){
                 wartosciUzytkownika[i]= plansza.toCharArray()[i];
             }
-        }else if(e.getSource() == save){
+        }else if(e.getSource() == save) {
             System.out.println("save"); //do zmiany
-        }else if(e.getSource()==listaGuzikow.get(0)){
+        }
+        //}else if(e.getSource()==listaGuzikow.get(0)){
             /*
             listaGuzikow.get(0).setBackground(wartosciUzytkownika[0] == "0" ? Color.BLACK : Color.WHITE);
             if(wartosciUzytkownika[0] == "0"){
@@ -129,10 +130,17 @@ public class Board4_4 extends Gui implements ActionListener {
             }else{
                 wartosciUzytkownika[0] = "0";
             }
-             */
-            change(listaGuzikow,wartosciUzytkownika);
-            System.out.println(wartosciUzytkownika[0]);
-        }
 
+            //change(listaGuzikow,wartosciUzytkownika,0);
+            //System.out.println(wartosciUzytkownika[0]);
+        }
+        */
+        for(int i=0; i < 16; i++){
+            if(e.getSource() == listaGuzikow.get(i)){
+                change(listaGuzikow,wartosciUzytkownika,i);
+                System.out.println("guzik" + i + " "  +wartosciUzytkownika[i]);
+                break;
+            }
+        }
     }
 }
