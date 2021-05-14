@@ -1,5 +1,6 @@
 package interaction;
 
+import Gui.Board4_4;
 import Gui.GuiMenu;
 
 import javax.swing.*;
@@ -16,10 +17,9 @@ public class StartGame extends Gui.Gui{
     public JButton autorzyButton;
     public JButton zamknijButton;
 
-
     public StartGame(){
         super();
-        ImageIcon icon = new ImageIcon( "nurikabe_4.png" );
+        ImageIcon icon = new ImageIcon( "src/png/nurikabe_4.png" );
         JLabel label = new JLabel();
 
         label.setIcon(icon);
@@ -68,9 +68,8 @@ public class StartGame extends Gui.Gui{
     public void actionPerformed(ActionEvent e){
         String event = e.getActionCommand();
     if(event.equals("WYBÓR PLANSZY")){
-
-    }
-    if(event.equals("USTAWIENIA")){
+        new Board4_4();
+    }if(event.equals("USTAWIENIA")){
 
     }
     if(event.equals("JAK GRAĆ?")){
@@ -84,8 +83,4 @@ public class StartGame extends Gui.Gui{
     }
 
     }
-    public static void main(String[] args) {
-        new StartGame();
-    }
-
 }
