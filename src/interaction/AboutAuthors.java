@@ -14,7 +14,7 @@ public class AboutAuthors {
                         Małgorzata Olech
                         """,
                 "Autorzy gierki",
-                JOptionPane.INFORMATION_MESSAGE, new ImageIcon( "brain.png" ));
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon( "src/png/brain.png" ));
 
     }
 
