@@ -16,10 +16,9 @@ public class StartGame extends Gui.Gui{
     public JButton autorzyButton;
     public JButton zamknijButton;
 
-
     public StartGame(){
         super();
-        ImageIcon icon = new ImageIcon( "nurikabe_4.png" );
+        ImageIcon icon = new ImageIcon( "src/png/nurikabe_4.png" );
         JLabel label = new JLabel();
 
         label.setIcon(icon);
@@ -82,8 +81,4 @@ public class StartGame extends Gui.Gui{
 
     }
     }
-    public static void main(String[] args) {
-        new StartGame();
-    }
-
 }
