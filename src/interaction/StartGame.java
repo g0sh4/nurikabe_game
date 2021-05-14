@@ -70,7 +70,7 @@ public class StartGame extends Gui.Gui{
     if(event.equals("WYBÓR PLANSZY")){
         new SelectBoardSize();
     }if(event.equals("USTAWIENIA")){
-
+        new Settings();
     }
     if(event.equals("JAK GRAĆ?")){
         new GameRules();
