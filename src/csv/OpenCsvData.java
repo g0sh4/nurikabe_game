@@ -26,11 +26,12 @@ public class OpenCsvData {
         csvData = csvReader.readAll();
     }
 
-    public ArrayList<String> getBoardNames() {
+    public String[] getBoardNames() {
         ArrayList<String> boardNames = new ArrayList<>();
         for (int i = 1; i < csvData.size(); i++) {
             boardNames.add(csvData.get(i)[0]);
         }
-        return boardNames;
+        String[] names = boardNames.toArray(new String[0]);
+        return names;
     }
 }
