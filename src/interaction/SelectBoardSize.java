@@ -25,26 +25,43 @@ public class SelectBoardSize extends Gui.Gui {
     public JComboBox cb1 = new JComboBox(wybor);
     public JComboBox cb2 = new JComboBox(openCsvData.getBoardNames());
 
+
     public JLabel wybierzPoziom = new JLabel("Wybierz poziom");
     public JLabel wybierzPlansze = new JLabel("Wybierz plansze");
 
 
     public JButton startGame = new JButton("Start game");
-    JPanel panel = new JPanel();
+    JPanel panel1 = new JPanel();
+    JPanel panel2 = new JPanel();
+    JPanel panel3 = new JPanel();
 
     public SelectBoardSize(){
         setTitle("Wybór planszy");
         cb1.addActionListener(this::actionPerformed);
         cb2.addActionListener(this::actionPerformed);
         startGame.addActionListener(this::actionPerformed);
-        panel.setLayout(new GridLayout( 5,1 ,9,9));
-        panel.add(wybierzPoziom);
-        panel.add(cb1);
-        panel.add(wybierzPlansze);
-        panel.add(cb2);
-        panel.add(startGame);
-        panel.setBorder(BorderFactory.createEmptyBorder(10,100,10,100));
-        add(panel);
+        //startGame.setBackground(new Color(222,184,135));
+        ImageIcon icon = new ImageIcon( "control.png" );
+
+        JLabel label = new JLabel(  );
+        label.setIcon(icon);
+        panel1.setLayout(new GridLayout( 3,1 ,9,9));
+        panel2.setLayout(new GridLayout( 2,1 ,9,9));
+
+        panel1.add(wybierzPoziom);
+        panel1.add(cb1);
+        panel2.add(wybierzPlansze);
+
+        panel2.add(cb2);
+        panel3.add(startGame);
+        panel1.setBorder(BorderFactory.createEmptyBorder(10,100,10,100));
+        panel2.setBorder(BorderFactory.createEmptyBorder(10,100,10,100));
+        panel3.setBorder(BorderFactory.createEmptyBorder(10,100,10,100));
+
+        add(panel1, BorderLayout.NORTH);
+        add(panel2, BorderLayout.CENTER);
+        add(panel3, BorderLayout.SOUTH);
+        pack();
         setVisible(true);
 
     }

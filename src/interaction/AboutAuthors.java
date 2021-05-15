@@ -9,9 +9,9 @@ public class AboutAuthors {
         frame.add(new JLabel( "Zasady gry: " ));
         JOptionPane.showMessageDialog(frame,
                 """
-                        Jan Sosulski
-                        Jakub Kozłowski
-                        Małgorzata Olech
+                        ‣ Jan Sosulski
+                        ‣ Jakub Kozłowski
+                        ‣ Małgorzata Olech
                         """,
                 "Autorzy gierki",
                 JOptionPane.INFORMATION_MESSAGE, new ImageIcon( "src/png/brain.png" ));

@@ -30,18 +30,23 @@ public class StartGame extends Gui.Gui{
 
         wyborPlanszy = new JButton( "WYBÓR PLANSZY" );
         wyborPlanszy.addActionListener(this::actionPerformed);
+        wyborPlanszy.setBackground(new Color(222,184,135));
 
         ustawieniaButton = new JButton( "USTAWIENIA" );
         ustawieniaButton.addActionListener(this::actionPerformed);
+        ustawieniaButton.setBackground(new Color(222,184,135));
 
         jakGrac = new JButton( "JAK GRAĆ?" );
         jakGrac.addActionListener(this::actionPerformed);
+        jakGrac.setBackground(new Color(222,184,135));
 
         autorzyButton = new JButton( "O AUTORACH" );
         autorzyButton.addActionListener(this::actionPerformed);
+        autorzyButton.setBackground(new Color(222,184,135));
 
         zamknijButton = new JButton( "ZAMKNIJ GRE" );
         zamknijButton.addActionListener(this::actionPerformed);
+        zamknijButton.setBackground(new Color(222,184,135));
 
         panelButtons = new JPanel();
         panelButtons.setLayout(new GridLayout( 5,1 ,9,9));
