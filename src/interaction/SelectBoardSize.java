@@ -70,8 +70,9 @@ public class SelectBoardSize extends Gui.Gui {
             String ktoryBoard = (String) cb1.getSelectedItem();
             String ktoraPlansza = (String) cb2.getSelectedItem();
             String plansza = openCsvData.getBoardDescription(ktoraPlansza);
+            String odpowiedz = openCsvData.getBoardSolution(ktoraPlansza);
             if(ktoryBoard.equals("Easy")){
-                new Board4_4(plansza);
+                new Board4_4(plansza,odpowiedz);
             }else if(ktoryBoard.equals("Medium")){
 
             }
