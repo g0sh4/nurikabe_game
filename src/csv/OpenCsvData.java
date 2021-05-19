@@ -44,4 +44,14 @@ public class OpenCsvData {
         }
         return csvData.get(index)[2];
     }
+
+    public String getBoardSolution(String name) {
+        int index = -1;
+        for (String[] x: csvData) {
+            if (x[0].equals(name)){
+                index = csvData.indexOf(x);
+            }
+        }
+        return csvData.get(index)[3];
+    }
 }

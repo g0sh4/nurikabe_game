@@ -1,5 +1,6 @@
 package Gui;
 
+import javax.management.remote.JMXConnectorFactory;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -16,32 +17,17 @@ public class Board4_4 extends Gui implements ActionListener {
     JButton check = new JButton("check");
     JButton print = new JButton("print");
     JButton reset = new JButton("reset");
-    /*
-    JButton b1=new JButton();
-    JButton b2=new JButton();
-    JButton b3=new JButton();
-    JButton b4=new JButton();
-    JButton b5=new JButton();
-    JButton b6=new JButton();
-    JButton b7=new JButton();
-    JButton b8=new JButton();
-    JButton b9=new JButton();
-    JButton b10=new JButton();
-    JButton b11=new JButton();
-    JButton b12=new JButton();
-    JButton b13=new JButton();
-    JButton b14=new JButton();
-    JButton b15=new JButton();
-    JButton b16=new JButton();
 
-     */
     public ArrayList<JButton> listaGuzikow = new ArrayList<JButton>();
 
     String plansza;
+    String odpowiedz;
     public char[] wartosciUzytkownika = new char[16];
-    public Board4_4(String plansza){
+    public Board4_4(String plansza,String odpowiedz){
         super();
         this.plansza = plansza;
+        this.odpowiedz = odpowiedz;
+
         for ( int i = 1; i < 17; i++){
             listaGuzikow.add(new JButton() );
         }
@@ -67,12 +53,8 @@ public class Board4_4 extends Gui implements ActionListener {
         print.addActionListener(this::actionPerformed);
         reset.addActionListener(this::actionPerformed);
         check.addActionListener(this::actionPerformed);
-        /*
-        panelZGuzikami.add(b1);panelZGuzikami.add(b2);panelZGuzikami.add(b3);panelZGuzikami.add(b4);
-        panelZGuzikami.add(b5);panelZGuzikami.add(b6);panelZGuzikami.add(b7);panelZGuzikami.add(b8);
-        panelZGuzikami.add(b9);panelZGuzikami.add(b10);panelZGuzikami.add(b11);panelZGuzikami.add(b12);
-        panelZGuzikami.add(b13);panelZGuzikami.add(b14);panelZGuzikami.add(b15);panelZGuzikami.add(b16);
-        */
+
+
         panelzMenuGora.add(check);panelzMenuGora.add(save);panelzMenuGora.add(help);
         panelZMenuDol.add(reset);panelZMenuDol.add(print);
         panel.setLayout(new BorderLayout());
@@ -104,6 +86,20 @@ public class Board4_4 extends Gui implements ActionListener {
         }
 
     }
+    //dziala ale mozna zrobic te metody jako osobne klasy we will see i akurat w tej planysz sa 2 opd i nie wiem co z tym zrobimy
+    //czy bedziemy szukac plansz z 1 odp czy jakos modyfikowac to
+    public static void check(char[] wartosciUzytkownika,String odpowiedz){
+        String uzytkownik = "";
+        for(int i=0; i < 16; i++){
+            uzytkownik += String.valueOf(wartosciUzytkownika[i]);
+        }
+        JFrame tymczasowe = new JFrame();
+        if(odpowiedz.equals(uzytkownik)){
+            JOptionPane.showMessageDialog(tymczasowe,"Gratulacje");
+        }else{
+            JOptionPane.showMessageDialog(tymczasowe,"Próbuj dalej");
+        }
+    }
 
 
     @Override
@@ -111,7 +107,7 @@ public class Board4_4 extends Gui implements ActionListener {
         if(e.getSource() == help){
             System.out.println("help"); //do zmiany
         }else if(e.getSource() == check){
-            System.out.println("check"); //do zmiany
+            check(wartosciUzytkownika,odpowiedz);
         }else if(e.getSource() == print){
             System.out.println("print"); //do zmiany
         }else if(e.getSource() == reset){
@@ -122,19 +118,7 @@ public class Board4_4 extends Gui implements ActionListener {
         }else if(e.getSource() == save) {
             System.out.println("save"); //do zmiany
         }
-        //}else if(e.getSource()==listaGuzikow.get(0)){
-            /*
-            listaGuzikow.get(0).setBackground(wartosciUzytkownika[0] == "0" ? Color.BLACK : Color.WHITE);
-            if(wartosciUzytkownika[0] == "0"){
-                wartosciUzytkownika[0] = "B";
-            }else{
-                wartosciUzytkownika[0] = "0";
-            }
 
-            //change(listaGuzikow,wartosciUzytkownika,0);
-            //System.out.println(wartosciUzytkownika[0]);
-        }
-        */
         for(int i=0; i < 16; i++){
             if(e.getSource() == listaGuzikow.get(i)){
                 change(listaGuzikow,wartosciUzytkownika,i);
