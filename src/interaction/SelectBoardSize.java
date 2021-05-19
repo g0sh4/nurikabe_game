@@ -74,7 +74,7 @@ public class SelectBoardSize extends Gui.Gui {
             if(ktoryBoard.equals("Easy")){
                 new Board4_4(plansza,odpowiedz);
             }else if(ktoryBoard.equals("Medium")){
-
+                new Gui.Board5_5(plansza,odpowiedz);
             }
             else if(ktoryBoard.equals("Hard")){
 

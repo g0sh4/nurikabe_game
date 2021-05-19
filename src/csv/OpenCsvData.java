@@ -44,7 +44,7 @@ public class OpenCsvData {
         }
         return csvData.get(index)[2];
     }
-
+    //ta metoda dorobilem kopiuj wklej z tej wyzej tylko zmieniony index z 2 na 3
     public String getBoardSolution(String name) {
         int index = -1;
         for (String[] x: csvData) {
