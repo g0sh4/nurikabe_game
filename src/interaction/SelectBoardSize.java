@@ -2,6 +2,7 @@ package interaction;
 
 import Gui.Board4_4;
 import Gui.Board5_5;
+import Gui.Board7_7;
 import com.opencsv.exceptions.CsvException;
 import csv.OpenCsvData;
 
@@ -78,7 +79,7 @@ public class SelectBoardSize extends Gui.Gui {
                 new Board5_5(plansza,odpowiedz);
             }
             else if(ktoryBoard.equals("Hard")){
-
+                new Board7_7(plansza, odpowiedz);
             }
 
 
