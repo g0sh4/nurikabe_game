@@ -23,7 +23,7 @@ public class Settings extends Gui {
         super();
         panel1= new JPanel();
         panel1.setLayout(new GridLayout( 1,1 ));
-        ImageIcon icon = new ImageIcon( "ustawienia.png" );
+        ImageIcon icon = new ImageIcon( "src/png/ustawienia.png" );
 
         label3 = new JLabel(  );
         label3.setIcon(icon);

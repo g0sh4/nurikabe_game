@@ -28,7 +28,7 @@ public class Board5_5 extends Gui implements ActionListener {
         this.plansza = plansza;
         this.odpowiedz = odpowiedz;
 
-        for ( int i = 1; i < 26; i++){
+        for ( int i = 0; i < 25; i++){
             listaGuzikow.add(new JButton() );
         }
         //ta petla nizej moze do zmiany
@@ -90,7 +90,7 @@ public class Board5_5 extends Gui implements ActionListener {
     //czy bedziemy szukac plansz z 1 odp czy jakos modyfikowac to
     public static void check(char[] wartosciUzytkownika,String odpowiedz){
         String uzytkownik = "";
-        for(int i=0; i < 25; i++){
+        for(int i=0; i < wartosciUzytkownika.length; i++){
             uzytkownik += String.valueOf(wartosciUzytkownika[i]);
         }
         JFrame tymczasowe = new JFrame();
@@ -112,14 +112,14 @@ public class Board5_5 extends Gui implements ActionListener {
             System.out.println("print"); //do zmiany
         }else if(e.getSource() == reset){
             addValueToButtons(plansza,listaGuzikow);
-            for(int i=0; i < 25; i++){
+            for(int i=0; i < wartosciUzytkownika.length; i++){
                 wartosciUzytkownika[i]= plansza.toCharArray()[i];
             }
         }else if(e.getSource() == save) {
             System.out.println("save"); //do zmiany
         }
 
-        for(int i=0; i < 25; i++){
+        for(int i=0; i < listaGuzikow.size(); i++){
             if(e.getSource() == listaGuzikow.get(i)){
                 change(listaGuzikow,wartosciUzytkownika,i);
                 System.out.println("guzik" + i + " "  +wartosciUzytkownika[i]);
