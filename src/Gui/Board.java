@@ -10,7 +10,11 @@ public class Board {
         for (int i = 0; i < plansza.length(); i++) {
             if (plansza.toCharArray()[i] == '0') {
                 listaGuzikow.get(i).setBackground(Color.WHITE);
-            } else {
+            }else if (plansza.toCharArray()[i] == 'B'){
+                listaGuzikow.get(i).setBackground(Color.BLACK);
+            }else if (plansza.toCharArray()[i] == 'G'){
+                listaGuzikow.get(i).setBackground(new Color(238,238,238));
+            }else {
                 listaGuzikow.get(i).setText(String.valueOf(plansza.toCharArray()[i]));
                 listaGuzikow.get(i).setEnabled(false);
             }
@@ -42,5 +46,8 @@ public class Board {
         }else{
             JOptionPane.showMessageDialog(tymczasowe,"Próbuj dalej");
         }
+    }
+    public static void help(ArrayList<JButton> listaGuzikow, char[] wartosciUzytkownika,String odpowiedz) {
+
     }
 }
