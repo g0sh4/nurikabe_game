@@ -1,10 +1,16 @@
 package Gui;
 
+import com.opencsv.exceptions.CsvException;
+import csv.OpenCsvData;
+import interaction.SelectBoardSize;
+import interaction.Settings;
+
 import javax.management.remote.JMXConnectorFactory;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Board5_5 extends Gui implements ActionListener {
@@ -22,7 +28,7 @@ public class Board5_5 extends Gui implements ActionListener {
 
     String plansza;
     String odpowiedz;
-    public char[] wartosciUzytkownika = new char[25];
+    public static char[] wartosciUzytkownika = new char[25];
     public Board5_5(String plansza,String odpowiedz){
         super();
         this.plansza = plansza;
@@ -80,7 +86,19 @@ public class Board5_5 extends Gui implements ActionListener {
                 wartosciUzytkownika[i]= plansza.toCharArray()[i];
             }
         }else if(e.getSource() == save) {
-            System.out.println("save"); //do zmiany
+            System.out.println("save");
+            if(Settings.path.length()==0){
+                JOptionPane.showMessageDialog(null, "Ustaw ścieżkę zapisu w ustawieniach.");
+            }
+            else{
+                try {
+                    OpenCsvData openCsvData = new OpenCsvData(Settings.path + "/boards.csv");
+                    openCsvData.addUserChanges(SelectBoardSize.getRowInCSV(), stanPlanszy());
+                } catch (IOException | CsvException ioException) {
+                    ioException.printStackTrace( );
+                }
+
+            }
         }
 
         for(int i=0; i < listaGuzikow.size(); i++){
@@ -90,5 +108,8 @@ public class Board5_5 extends Gui implements ActionListener {
                 break;
             }
         }
+    }
+    public static String[] stanPlanszy(){
+        return new String[]{String.valueOf(wartosciUzytkownika)};
     }
 }
