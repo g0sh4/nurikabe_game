@@ -17,6 +17,10 @@ public class OpenCsvData {
 
     public List<String[]> csvData = new ArrayList<>();
 
+    private String[] easyNames;
+    private String[] mediumNames;
+    private String[] hardNames;
+
 
     public OpenCsvData(String fileName) throws IOException, CsvException {
         FileReader fr = new FileReader(new File(fileName));
@@ -42,9 +46,9 @@ public class OpenCsvData {
             }
         }
 
-        String[] easyNames = Arrays.copyOfRange(names, onesIndexes.get(0), onesIndexes.get(1));
-        String[] mediumNames = Arrays.copyOfRange(names, onesIndexes.get(1), onesIndexes.get(2));
-        String[] hardNames = Arrays.copyOfRange(names, onesIndexes.get(2), names.length);
+        easyNames = Arrays.copyOfRange(names, onesIndexes.get(0), onesIndexes.get(1));
+        mediumNames = Arrays.copyOfRange(names, onesIndexes.get(1), onesIndexes.get(2));
+        hardNames = Arrays.copyOfRange(names, onesIndexes.get(2), names.length);
 
         ArrayList<String[]> listOfNames = new ArrayList<>();
         listOfNames.add(easyNames);
@@ -56,24 +60,32 @@ public class OpenCsvData {
         return listOfNames;
     }
 
-    public String getBoardDescription(String name) {
-        int index = -1;
-        for (String[] x: csvData) {
-            if (x[0].equals(name)){
-                index = csvData.indexOf(x);
+    public String getBoardDescription(String name, int x) {
+        ArrayList<Integer> indexes = new ArrayList<>();
+
+        for (String[] y: csvData) {
+            if (y[0].equals(name)){
+                indexes.add(csvData.indexOf(x));
             }
         }
+
+        int index = indexes.get(x);
+
         return csvData.get(index)[2];
     }
 
     //ta metoda dorobilem kopiuj wklej z tej wyzej tylko zmieniony index z 2 na 3
-    public String getBoardSolution(String name) {
-        int index = -1;
-        for (String[] x: csvData) {
-            if (x[0].equals(name)){
-                index = csvData.indexOf(x);
+    public String getBoardSolution(String name, int x) {
+        ArrayList<Integer> indexes = new ArrayList<>();
+
+        for (String[] y: csvData) {
+            if (y[0].equals(name)){
+                indexes.add(csvData.indexOf(x));
             }
         }
+
+        int index = indexes.get(x);
+
         return csvData.get(index)[3];
     }
 }
