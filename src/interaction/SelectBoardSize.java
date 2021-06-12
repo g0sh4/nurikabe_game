@@ -70,8 +70,16 @@ public class SelectBoardSize extends Gui.Gui {
         if(e.getSource() == startGame){
             String ktoryBoard = (String) cb1.getSelectedItem();
             String ktoraPlansza = (String) cb2.getSelectedItem();
-            String plansza = openCsvData.getBoardDescription(ktoraPlansza, 0);
-            String odpowiedz = openCsvData.getBoardSolution(ktoraPlansza, 0);
+            int sth;
+            if(ktoryBoard.equals("Easy")){
+                sth=0;
+            }else if(ktoryBoard.equals("Medium")){
+                sth=1;
+            }else{
+                sth=2;
+            }
+            String plansza = openCsvData.getBoardDescription(ktoraPlansza, sth);
+            String odpowiedz = openCsvData.getBoardSolution(ktoraPlansza, sth);
             if(ktoryBoard.equals("Easy")){
                 new Board4_4(plansza,odpowiedz);
             }else if(ktoryBoard.equals("Medium")){
@@ -85,14 +93,21 @@ public class SelectBoardSize extends Gui.Gui {
             setVisible(false);
         }
         if(cb1.getSelectedItem() == "Easy"){
+            cb2.validate();
             final DefaultComboBoxModel model = new DefaultComboBoxModel(openCsvData.getBoardNames().get(0));
             cb2.setModel(model);
+            cb2.repaint();
         }if(cb1.getSelectedItem() == "Medium"){
+            cb2.validate();
             final DefaultComboBoxModel model = new DefaultComboBoxModel(openCsvData.getBoardNames().get(1));
+
             cb2.setModel(model);
+            cb2.repaint();
         }if(cb1.getSelectedItem() == "Hard"){
+            cb2.validate();
             final DefaultComboBoxModel model = new DefaultComboBoxModel(openCsvData.getBoardNames().get(2));
             cb2.setModel(model);
+            cb2.repaint();
         }
 
         

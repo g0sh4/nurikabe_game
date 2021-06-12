@@ -65,7 +65,7 @@ public class OpenCsvData {
 
         for (String[] y: csvData) {
             if (y[0].equals(name)){
-                indexes.add(csvData.indexOf(x));
+                indexes.add(csvData.indexOf(y));
             }
         }
 
@@ -80,7 +80,7 @@ public class OpenCsvData {
 
         for (String[] y: csvData) {
             if (y[0].equals(name)){
-                indexes.add(csvData.indexOf(x));
+                indexes.add(csvData.indexOf(y));
             }
         }
 
