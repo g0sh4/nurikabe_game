@@ -25,7 +25,7 @@ public class SelectBoardSize extends Gui.Gui {
 
     String[] wybor = {"Easy","Medium","Hard"};
     public JComboBox cb1 = new JComboBox(wybor);
-    public JComboBox cb2 = new JComboBox(openCsvData.getBoardNames());
+    public JComboBox cb2 = new JComboBox(openCsvData.getBoardNames().get(0));
 
 
     public JLabel wybierzPoziom = new JLabel("Wybierz poziom");

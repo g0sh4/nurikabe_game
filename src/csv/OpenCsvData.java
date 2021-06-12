@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class OpenCsvData {
@@ -26,13 +27,33 @@ public class OpenCsvData {
         csvData = csvReader.readAll();
     }
 
-    public String[] getBoardNames() {
+    public ArrayList<String[]> getBoardNames() {
         ArrayList<String> boardNames = new ArrayList<>();
         for (int i = 1; i < csvData.size(); i++) {
             boardNames.add(csvData.get(i)[0]);
         }
         String[] names = boardNames.toArray(new String[0]);
-        return names;
+
+        ArrayList<Integer> onesIndexes = new ArrayList<>();
+        //selection by level
+        for (int i = 0; i<names.length; i++) {
+            if (names[i].equals("1")) {
+                onesIndexes.add(i);
+            }
+        }
+
+        String[] easyNames = Arrays.copyOfRange(names, onesIndexes.get(0), onesIndexes.get(1));
+        String[] mediumNames = Arrays.copyOfRange(names, onesIndexes.get(1), onesIndexes.get(2));
+        String[] hardNames = Arrays.copyOfRange(names, onesIndexes.get(2), names.length);
+
+        ArrayList<String[]> listOfNames = new ArrayList<>();
+        listOfNames.add(easyNames);
+        listOfNames.add(mediumNames);
+        listOfNames.add(hardNames);
+
+        System.out.println(listOfNames);
+
+        return listOfNames;
     }
 
     public String getBoardDescription(String name) {
@@ -44,6 +65,7 @@ public class OpenCsvData {
         }
         return csvData.get(index)[2];
     }
+
     //ta metoda dorobilem kopiuj wklej z tej wyzej tylko zmieniony index z 2 na 3
     public String getBoardSolution(String name) {
         int index = -1;
