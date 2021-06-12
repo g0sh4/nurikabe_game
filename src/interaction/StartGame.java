@@ -19,7 +19,7 @@ public class StartGame extends Gui.Gui{
 
     public StartGame(){
         super();
-        ImageIcon icon = new ImageIcon( "src/png/nurikabe_4.png" );
+        ImageIcon icon = new ImageIcon( "png/nurikabe_4.png" );
         JLabel label = new JLabel();
 
         label.setIcon(icon);

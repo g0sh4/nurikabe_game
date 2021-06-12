@@ -15,7 +15,7 @@ public class SelectBoardSize extends Gui.Gui {
     OpenCsvData openCsvData;
     {
         try {
-            openCsvData = new OpenCsvData("src/csv/boards.csv");
+            openCsvData = new OpenCsvData("csv_files/boards.csv");
         } catch (IOException e) {
             e.printStackTrace();
         } catch (CsvException e) {
