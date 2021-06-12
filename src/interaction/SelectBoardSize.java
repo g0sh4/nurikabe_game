@@ -10,6 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class SelectBoardSize extends Gui.Gui {
     OpenCsvData openCsvData;
@@ -33,6 +34,8 @@ public class SelectBoardSize extends Gui.Gui {
 
     String[] wybor = {"Easy","Medium","Hard"};
     public JComboBox cb1 = new JComboBox(wybor);
+
+
     public JComboBox cb2 = new JComboBox(openCsvData.getBoardNames().get(0));
 
 
@@ -107,24 +110,24 @@ public class SelectBoardSize extends Gui.Gui {
             }
 
             setVisible(false);
-        }
+        } // DO ZMIANY !!!!!!!!!!!!!
+        /*
         if(cb1.getSelectedItem() == "Easy"){
-            //cb2.removeAllItems();
-            //final DefaultComboBoxModel model = new DefaultComboBoxModel(openCsvData.getBoardNames().get(0));
-            //cb2.setModel(model);
-            //for (int i = 0; i < openCsvData.getBoardNames().get(0).length ; i++) { cb2.addItem(openCsvData.getBoardNames().get(0)[i]); }
-        }if(cb1.getSelectedItem() == "Medium"){
-            //cb2.removeAllItems();
-            //final DefaultComboBoxModel model = new DefaultComboBoxModel(openCsvData.getBoardNames().get(1));
+            cb2.removeAllItems();
 
-            //cb2.setModel(model);
-            //for (int i = 0; i < openCsvData.getBoardNames().get(1).length ; i++) { cb2.addItem(openCsvData.getBoardNames().get(1)[i]); }
+            for (int i = 0; i < openCsvData.getBoardNames().get(0).length ; i++) { cb2.addItem(openCsvData.getBoardNames().get(0)[i]); }
+        }if(cb1.getSelectedItem() == "Medium"){
+            cb2.removeAllItems();
+
+            for (int i = 0; i < openCsvData.getBoardNames().get(1).length ; i++) { cb2.addItem(openCsvData.getBoardNames().get(1)[i]); }
         }if(cb1.getSelectedItem() == "Hard"){
-            //cb2.removeAllItems();
-            //final DefaultComboBoxModel model = new DefaultComboBoxModel(openCsvData.getBoardNames().get(2));
-            //cb2.setModel(model);
+            cb2.removeAllItems();
+
             //for (int i = 0; i < openCsvData.getBoardNames().get(2).length ; i++) { cb2.addItem(openCsvData.getBoardNames().get(2)[i]); }
         }
+
+         */
+
 
         
     }
