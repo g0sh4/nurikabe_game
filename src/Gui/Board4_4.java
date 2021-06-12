@@ -69,16 +69,13 @@ public class Board4_4 extends Gui implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == help){
-            System.out.println("help"); //do zmiany
+            Board.help(wartosciUzytkownika,odpowiedz); //do zmiany
         }else if(e.getSource() == check){
             Board.check(wartosciUzytkownika,odpowiedz);
         }else if(e.getSource() == print){
             System.out.println("print"); //do zmiany
         }else if(e.getSource() == reset){
-            Board.addValueToButtons(plansza,listaGuzikow);
-            for(int i=0; i < 16; i++){
-                wartosciUzytkownika[i]= plansza.toCharArray()[i];
-            }
+            Board.reset(wartosciUzytkownika,plansza,listaGuzikow);
         }else if(e.getSource() == save) {
             System.out.println("save");
             //zapis tej aktualnej gierki do pliku

@@ -47,7 +47,39 @@ public class Board {
             JOptionPane.showMessageDialog(tymczasowe,"Próbuj dalej");
         }
     }
-    public static void help(ArrayList<JButton> listaGuzikow, char[] wartosciUzytkownika,String odpowiedz) {
+    public static void help(char[] wartosciUzytkownika,String odpowiedz) {
+        String[] odpowiedz1 = odpowiedz.split("");
+        JFrame tymczasowe = new JFrame();
+        for(int i=0;i<wartosciUzytkownika.length;i++){
+            if (!String.valueOf(wartosciUzytkownika[i]).equals(odpowiedz1[i])) {
+                int x=0;
+                int y=0;
+                if(odpowiedz.length()==16){
+                    x=1+(i/4);
+                    y=1+(i%4);
+                }else  if(odpowiedz.length()==25){
+                    x=1+(i/5);
+                    y=1+(i%5);
+                }else{
+                    x=1+(i/7);
+                    y=1+(i%7);
+                }
 
+                if(odpowiedz1[i].equals("B")){
+                    JOptionPane.showMessageDialog(tymczasowe, "Pole koloru CZARNEGO na pozycji\n wiersz: "+String.valueOf(x) +" kolumna: "+ String.valueOf(y));
+                }else{
+                    JOptionPane.showMessageDialog(tymczasowe, "Pole koloru SZAREGO na pozycji\n wiersz: "+String.valueOf(x) +" kolumna: "+  String.valueOf(y));
+                }
+                break;
+            }
+        }
+    }
+    public static void reset(char[] wartosciUzytkownika,String plansza,ArrayList<JButton> listaGuzikow) {
+        plansza =plansza.replaceAll("G","0");
+        plansza =plansza.replaceAll("B","0");
+        Board.addValueToButtons(plansza,listaGuzikow);
+        for(int i=0; i < wartosciUzytkownika.length; i++){
+            wartosciUzytkownika[i]= plansza.toCharArray()[i];
+        }
     }
 }
