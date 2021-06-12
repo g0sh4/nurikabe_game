@@ -1,7 +1,13 @@
 package Gui;
 
+import com.opencsv.exceptions.CsvException;
+import csv.OpenCsvData;
+import interaction.SelectBoardSize;
+import interaction.Settings;
+
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Board {
@@ -81,5 +87,22 @@ public class Board {
         for(int i=0; i < wartosciUzytkownika.length; i++){
             wartosciUzytkownika[i]= plansza.toCharArray()[i];
         }
+    }
+    public static void save(char[] wartosciUzytkownika){
+        if(Settings.path.length()==0){
+            JOptionPane.showMessageDialog(null, "Ustaw ścieżkę zapisu w ustawieniach.");
+        }
+        else{
+            try {
+                OpenCsvData openCsvData = new OpenCsvData(Settings.path + "/boards.csv");
+                openCsvData.addUserChanges(SelectBoardSize.getRowInCSV(), stanPlanszy(wartosciUzytkownika));
+            } catch (IOException | CsvException ioException) {
+                ioException.printStackTrace( );
+            }
+
+        }
+    }
+    public static String[] stanPlanszy(char[] wartosciUzytkownika){
+        return new String[]{String.valueOf(wartosciUzytkownika)};
     }
 }
