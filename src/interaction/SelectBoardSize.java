@@ -14,6 +14,8 @@ import java.util.ArrayList;
 
 public class SelectBoardSize extends Gui.Gui {
     OpenCsvData openCsvData;
+    public static String ktoryBoard;
+    public static String ktoraPlansza;
     {
         try {
             if (Settings.getPath() == ""){
@@ -79,8 +81,8 @@ public class SelectBoardSize extends Gui.Gui {
     }
     public void actionPerformed(ActionEvent e){
         if(e.getSource() == startGame){
-            String ktoryBoard = (String) cb1.getSelectedItem();
-            String ktoraPlansza = (String) cb2.getSelectedItem();
+            ktoryBoard = (String) cb1.getSelectedItem();
+            ktoraPlansza = (String) cb2.getSelectedItem();
             int sth;
             if(ktoryBoard.equals("Easy")){
                 sth=0;
@@ -130,5 +132,18 @@ public class SelectBoardSize extends Gui.Gui {
 
 
         
+    }
+
+    public static int getRowInCSV(){
+        if(ktoryBoard=="Easy"){
+            return Integer.parseInt(ktoraPlansza);
+        }
+        if(ktoryBoard=="Medium"){
+            return Integer.parseInt(ktoraPlansza)+6;
+        }
+        if(ktoryBoard=="Hard"){
+            return  Integer.parseInt(ktoraPlansza)+13;
+        }
+        return 0;
     }
 }
