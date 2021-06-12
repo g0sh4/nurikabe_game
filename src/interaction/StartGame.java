@@ -55,6 +55,7 @@ public class StartGame extends Gui.Gui{
         panelButtons.add(jakGrac);
         panelButtons.add(autorzyButton);
         panelButtons.add(zamknijButton);
+
         panelButtons.setBorder(BorderFactory.createEmptyBorder(10,100,10,100));
         panelButtons.setBackground(new Color(253,245,230));
 

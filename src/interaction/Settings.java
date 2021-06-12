@@ -10,12 +10,15 @@ import java.io.File;
 public class Settings extends Gui {
     public JPanel panel;
     public JPanel panel1;
+    public JPanel panel2;
     public JButton wybierzButton;
     public JLabel label2;
     public JLabel label1;
     public JLabel label3;
+    public JLabel wybranaSciezka;
+    public JLabel wybranaSciezkaLabel;
 
-    public String path;
+    public static String path;
     JComboBox comboBox;
     public boolean autozapis;
 
@@ -24,8 +27,9 @@ public class Settings extends Gui {
         panel1= new JPanel();
         panel1.setLayout(new GridLayout( 1,1 ));
         ImageIcon icon = new ImageIcon( "png/ustawienia.png" );
+        wybranaSciezka = new JLabel();
+        label3 = new JLabel();
 
-        label3 = new JLabel(  );
         label3.setIcon(icon);
         panel1.add(label3);
         panel = new JPanel();
@@ -46,9 +50,16 @@ public class Settings extends Gui {
         panel.add(label2);
         panel.add(comboBox);
         panel.setBorder(BorderFactory.createEmptyBorder(10,80,10,100));
+        panel2 = new JPanel();
+        panel2.setLayout(new GridLayout( 1,2 ));
+        panel2.setBorder(BorderFactory.createEmptyBorder(10,80,10,100));
+        wybranaSciezkaLabel = new JLabel();
+        wybranaSciezkaLabel.setText("Nie wybrano ścieżki do zapisu.");
+        panel2.add(wybranaSciezkaLabel);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         add(label3, BorderLayout.NORTH);
         add(panel, BorderLayout.CENTER);
+        add(panel2, BorderLayout.SOUTH);
         pack();
         setVisible(true);
 
@@ -63,13 +74,11 @@ public class Settings extends Gui {
 
             try{
                 path = choose.getSelectedFile().getPath();
-                JOptionPane.showMessageDialog(null, "Wybrano taką ścieżkę zapisu: "+path);
+                JOptionPane.showMessageDialog(null, "Wybrana ścieżka do zapisu: "+path);
+                wybranaSciezkaLabel.setText("Wybrana ścieżka do zapisu: "+path);
             }catch (Exception exception){
                 JOptionPane.showMessageDialog(null, "Nie wybrano ścieżki zapisu !");
             }
-
-
-
 
         }
         if(comboBox.getSelectedItem()=="ON"){

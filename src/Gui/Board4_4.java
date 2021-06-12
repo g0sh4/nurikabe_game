@@ -78,7 +78,8 @@ public class Board4_4 extends Gui implements ActionListener {
 
     }
     public static void change(ArrayList<JButton> listaGuzikow,char[] wartosciUzytkownika,int ktory){
-        listaGuzikow.get(ktory).setBackground(wartosciUzytkownika[ktory] == '0' ? Color.GRAY :
+        Color myGray = new Color(238,238,238);
+        listaGuzikow.get(ktory).setBackground(wartosciUzytkownika[ktory] == '0' ? myGray :
                 wartosciUzytkownika[ktory] == 'G' ? Color.BLACK : Color.WHITE);
         if(wartosciUzytkownika[ktory] == '0'){
             wartosciUzytkownika[ktory] = 'G';
