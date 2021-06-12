@@ -18,7 +18,7 @@ public class Settings extends Gui {
     public JLabel wybranaSciezka;
     public JLabel wybranaSciezkaLabel;
 
-    public static String path;
+    public static String path = "";
     JComboBox comboBox;
     public boolean autozapis;
 
@@ -93,12 +93,7 @@ public class Settings extends Gui {
         }
     }
 
-    public String getPath() {
+    public static String getPath() {
         return path;
     }
-
-
-
-
-
 }

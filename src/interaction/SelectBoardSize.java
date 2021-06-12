@@ -15,7 +15,15 @@ public class SelectBoardSize extends Gui.Gui {
     OpenCsvData openCsvData;
     {
         try {
-            openCsvData = new OpenCsvData("csv_files/boards.csv");
+            if (Settings.getPath() == ""){
+                openCsvData = new OpenCsvData("csv_files/boards.csv");
+                System.out.printf("jol");
+            }
+            else {
+                openCsvData = new OpenCsvData(Settings.path + "/boards.csv");
+                System.out.printf("elo");
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         } catch (CsvException e) {
@@ -78,7 +86,16 @@ public class SelectBoardSize extends Gui.Gui {
             }else{
                 sth=2;
             }
-            String plansza = openCsvData.getBoardDescription(ktoraPlansza, sth);
+
+            String plansza;
+
+            if (openCsvData.getBoardSaved(ktoraPlansza, sth) == ""){
+                plansza = openCsvData.getBoardDescription(ktoraPlansza, sth);
+            }
+            else {
+                plansza = openCsvData.getBoardSaved(ktoraPlansza, sth);
+            }
+
             String odpowiedz = openCsvData.getBoardSolution(ktoraPlansza, sth);
             if(ktoryBoard.equals("Easy")){
                 new Board4_4(plansza,odpowiedz);
@@ -88,7 +105,6 @@ public class SelectBoardSize extends Gui.Gui {
             else if(ktoryBoard.equals("Hard")){
                 new Board7_7(plansza, odpowiedz);
             }
-
 
             setVisible(false);
         }
