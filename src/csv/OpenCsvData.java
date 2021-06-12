@@ -88,4 +88,19 @@ public class OpenCsvData {
 
         return csvData.get(index)[3];
     }
+
+    public String getBoardSaved(String name, int x) {
+        ArrayList<Integer> indexes = new ArrayList<>();
+
+        for (String[] y: csvData) {
+            if (y[0].equals(name)){
+                indexes.add(csvData.indexOf(y));
+            }
+        }
+
+        int index = indexes.get(x);
+
+        return csvData.get(index)[4];
+    }
+
 }
