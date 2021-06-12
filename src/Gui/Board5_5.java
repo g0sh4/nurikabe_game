@@ -2,6 +2,7 @@ package Gui;
 
 import com.opencsv.exceptions.CsvException;
 import csv.OpenCsvData;
+import interaction.Print;
 import interaction.SelectBoardSize;
 import interaction.Settings;
 
@@ -79,7 +80,7 @@ public class Board5_5 extends Board implements ActionListener {
         }else if(e.getSource() == check){
             Board.check(wartosciUzytkownika,odpowiedz);
         }else if(e.getSource() == print){
-            System.out.println("print"); //do zmiany
+            new Print(panelZGuzikami);
         }else if(e.getSource() == reset){
             Board.reset(wartosciUzytkownika,plansza,listaGuzikow);
         }else if(e.getSource() == save) {
