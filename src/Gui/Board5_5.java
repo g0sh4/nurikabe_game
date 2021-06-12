@@ -74,39 +74,16 @@ public class Board5_5 extends Gui implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == help){
-            Board.help(wartosciUzytkownika,odpowiedz);
-        }else if(e.getSource() == check){
-            Board.check(wartosciUzytkownika,odpowiedz);
-        }else if(e.getSource() == print){
+        if (e.getSource() == help) {
+            Board.help(wartosciUzytkownika, odpowiedz);
+        } else if (e.getSource() == check) {
+            Board.check(wartosciUzytkownika, odpowiedz);
+        } else if (e.getSource() == print) {
             System.out.println("print"); //do zmiany
-        }else if(e.getSource() == reset){
-            Board.reset(wartosciUzytkownika,plansza,listaGuzikow);
-        }else if(e.getSource() == save) {
-            System.out.println("save");
-            if(Settings.path.length()==0){
-                JOptionPane.showMessageDialog(null, "Ustaw ścieżkę zapisu w ustawieniach.");
-            }
-            else{
-                try {
-                    OpenCsvData openCsvData = new OpenCsvData(Settings.path + "/boards.csv");
-                    openCsvData.addUserChanges(SelectBoardSize.getRowInCSV(), stanPlanszy());
-                } catch (IOException | CsvException ioException) {
-                    ioException.printStackTrace( );
-                }
-
-            }
+        } else if (e.getSource() == reset) {
+            Board.reset(wartosciUzytkownika, plansza, listaGuzikow);
+        } else if (e.getSource() == save) {
+            Board.save(wartosciUzytkownika);
         }
-
-        for(int i=0; i < listaGuzikow.size(); i++){
-            if(e.getSource() == listaGuzikow.get(i)){
-                Board.change(listaGuzikow,wartosciUzytkownika,i);
-                System.out.println("guzik" + i + " "  +wartosciUzytkownika[i]);
-                break;
-            }
-        }
-    }
-    public static String[] stanPlanszy(){
-        return new String[]{String.valueOf(wartosciUzytkownika)};
     }
 }

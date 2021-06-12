@@ -83,31 +83,7 @@ public class Board7_7 extends Gui implements ActionListener {
         }else if(e.getSource() == reset){
             Board.reset(wartosciUzytkownika,plansza,listaGuzikow);
         }else if(e.getSource() == save) {
-            System.out.println("save");
-            if(Settings.path.length()==0){
-                JOptionPane.showMessageDialog(null, "Ustaw ścieżkę zapisu w ustawieniach.");
-            }
-            else{
-                //System.out.println(SelectBoardSize.getRowInCSV());
-                try {
-                    OpenCsvData openCsvData = new OpenCsvData(Settings.path + "/boards.csv");
-                    openCsvData.addUserChanges(SelectBoardSize.getRowInCSV(), stanPlanszy());
-                } catch (IOException | CsvException ioException) {
-                    ioException.printStackTrace( );
-                }
-
-            }
+            Board.save(wartosciUzytkownika);
         }
-
-        for(int i=0; i < 49; i++){
-            if(e.getSource() == listaGuzikow.get(i)){
-                Board.change(listaGuzikow,wartosciUzytkownika,i);
-                System.out.println("guzik" + i + " "  +wartosciUzytkownika[i]);
-                break;
-            }
-        }
-    }
-    public static String[] stanPlanszy(){
-        return new String[]{String.valueOf(wartosciUzytkownika)};
     }
 }
