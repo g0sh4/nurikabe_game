@@ -78,8 +78,11 @@ public class Board7_7 extends Gui implements ActionListener {
 
     }
     public static void change(ArrayList<JButton> listaGuzikow,char[] wartosciUzytkownika,int ktory){
-        listaGuzikow.get(ktory).setBackground(wartosciUzytkownika[ktory] == '0' ? Color.BLACK : Color.WHITE);
+        listaGuzikow.get(ktory).setBackground(wartosciUzytkownika[ktory] == '0' ? Color.GRAY :
+                wartosciUzytkownika[ktory] == 'G' ? Color.BLACK : Color.WHITE);
         if(wartosciUzytkownika[ktory] == '0'){
+            wartosciUzytkownika[ktory] = 'G';
+        }else if(wartosciUzytkownika[ktory] == 'G') {
             wartosciUzytkownika[ktory] = 'B';
         }else{
             wartosciUzytkownika[ktory] = '0';
