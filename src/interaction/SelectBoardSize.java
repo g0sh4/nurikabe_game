@@ -42,7 +42,6 @@ public class SelectBoardSize extends Gui.Gui {
         cb1.addActionListener(this::actionPerformed);
         cb2.addActionListener(this::actionPerformed);
         startGame.addActionListener(this::actionPerformed);
-        //startGame.setBackground(new Color(222,184,135));
         ImageIcon icon = new ImageIcon( "control.png" );
 
         JLabel label = new JLabel(  );
