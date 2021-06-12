@@ -1,14 +1,10 @@
 package csv;
 
-import com.opencsv.CSVParser;
-import com.opencsv.CSVParserBuilder;
-import com.opencsv.CSVReader;
-import com.opencsv.CSVReaderBuilder;
+import com.opencsv.*;
 import com.opencsv.exceptions.CsvException;
+import interaction.Settings;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -102,5 +98,27 @@ public class OpenCsvData {
 
         return csvData.get(index)[4];
     }
+    public void addUserChanges(int row, String[]changedBoard) throws IOException {
 
+
+        String[] buffor = csvData.get(row);
+        ArrayList<String> scripts = new ArrayList<String>();
+        scripts.add(buffor[0]);
+        scripts.add(buffor[1]);
+        scripts.add(buffor[2]);
+        scripts.add(buffor[3]);
+        scripts.add(changedBoard[0]);
+
+        String[] strings = scripts.toArray(String[]::new);
+        File file = new File(Settings.path + "/boards.csv");
+        FileWriter outputfile = new FileWriter(file);
+        CSVWriter writer = new CSVWriter(outputfile);
+        csvData.remove(row);
+        csvData.add(row, strings);
+        writer.writeAll(csvData);
+        writer.close();
+
+
+
+    }
 }

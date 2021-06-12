@@ -30,7 +30,7 @@ public class Board4_4 extends Board implements ActionListener {
 
     String plansza;
     String odpowiedz;
-    public char[] wartosciUzytkownika = new char[16];
+    public static char[] wartosciUzytkownika = new char[16];
     public Board4_4(String plansza,String odpowiedz){
         super();
         this.plansza = plansza;
@@ -87,7 +87,19 @@ public class Board4_4 extends Board implements ActionListener {
             Board.reset(wartosciUzytkownika,plansza,listaGuzikow);
         }else if(e.getSource() == save) {
             System.out.println("save");
-            //zapis tej aktualnej gierki do pliku
+            if(Settings.path.length()==0){
+                JOptionPane.showMessageDialog(null, "Ustaw ścieżkę zapisu w ustawieniach.");
+            }
+            else{
+                try {
+                    OpenCsvData openCsvData = new OpenCsvData(Settings.path + "/boards.csv");
+                    openCsvData.addUserChanges(SelectBoardSize.getRowInCSV(), stanPlanszy());
+                } catch (IOException | CsvException ioException) {
+                    ioException.printStackTrace( );
+                }
+
+            }
+
         }
 
         for(int i=0; i < listaGuzikow.size(); i++){
@@ -97,5 +109,8 @@ public class Board4_4 extends Board implements ActionListener {
                 break;
             }
         }
+    }
+    public static String[] stanPlanszy(){
+        return new String[]{String.valueOf(wartosciUzytkownika)};
     }
 }
