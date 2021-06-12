@@ -16,7 +16,7 @@ public class GameRules {
                         5. Wszystkie pola z rzeką muszą być połączone
                         6. Mapa nie może zawierać żadnego kwadratu rozmiarem 2 x 2, wszystkie pola którego zawierają rzekę""",
                 "Zasady gry Nurikabe",
-                JOptionPane.INFORMATION_MESSAGE, new ImageIcon( "src/png/joystick.png" ));
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon( "png/joystick.png" ));
 
     }
 
