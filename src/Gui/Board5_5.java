@@ -22,7 +22,7 @@ public class Board5_5 extends Gui implements ActionListener {
 
     String plansza;
     String odpowiedz;
-    public char[] wartosciUzytkownika = new char[plansza.length()];
+    public char[] wartosciUzytkownika = new char[25];
     public Board5_5(String plansza,String odpowiedz){
         super();
         this.plansza = plansza;
