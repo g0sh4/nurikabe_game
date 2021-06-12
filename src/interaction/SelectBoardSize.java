@@ -84,6 +84,17 @@ public class SelectBoardSize extends Gui.Gui {
 
             setVisible(false);
         }
+        if(cb1.getSelectedItem() == "Easy"){
+            final DefaultComboBoxModel model = new DefaultComboBoxModel(openCsvData.getBoardNames().get(0));
+            cb2.setModel(model);
+        }if(cb1.getSelectedItem() == "Medium"){
+            final DefaultComboBoxModel model = new DefaultComboBoxModel(openCsvData.getBoardNames().get(1));
+            cb2.setModel(model);
+        }if(cb1.getSelectedItem() == "Hard"){
+            final DefaultComboBoxModel model = new DefaultComboBoxModel(openCsvData.getBoardNames().get(2));
+            cb2.setModel(model);
+        }
+
         
     }
 }
