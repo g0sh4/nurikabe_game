@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class Board {
+public class Board extends Gui{
 
     public static void addValueToButtons(String plansza, ArrayList<JButton> listaGuzikow) {
         for (int i = 0; i < plansza.length(); i++) {

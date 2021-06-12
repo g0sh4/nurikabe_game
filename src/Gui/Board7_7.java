@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class Board7_7 extends Gui implements ActionListener {
+public class Board7_7 extends Board implements ActionListener {
     JPanel panel = new JPanel();
     JPanel panelZMenuDol = new JPanel();
     JPanel panelZGuzikami= new JPanel();

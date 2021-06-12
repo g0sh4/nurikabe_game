@@ -47,8 +47,6 @@ public class SaveFile {
             }catch(IOException ioe){
                 ioe.printStackTrace();
             }
-
         }
     }
-
 }

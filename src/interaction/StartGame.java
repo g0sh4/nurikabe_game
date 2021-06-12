@@ -74,7 +74,12 @@ public class StartGame extends Gui.Gui{
     public void actionPerformed(ActionEvent e){
         String event = e.getActionCommand();
     if(event.equals("WYBÓR PLANSZY")){
-        new SelectBoardSize();
+        if (!Settings.getPath().equals("")){
+            new SelectBoardSize();
+        }
+        else JOptionPane.showMessageDialog(new JFrame("UWAGA"), "Zanim zaczniesz grać wybierz scieżkę do zapisu oraz odczytu plików! " +
+                "\n W tym celu udaj się do zakładki USTAWIENIA");
+
     }if(event.equals("USTAWIENIA")){
         new Settings();
     }
