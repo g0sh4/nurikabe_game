@@ -80,7 +80,10 @@ public class Board4_4 extends Gui implements ActionListener {
                 wartosciUzytkownika[i]= plansza.toCharArray()[i];
             }
         }else if(e.getSource() == save) {
-            System.out.println("save"); //do zmiany
+            System.out.println("save");
+            //zapis tej aktualnej gierki do pliku
+
+
         }
 
         for(int i=0; i < listaGuzikow.size(); i++){
