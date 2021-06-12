@@ -40,7 +40,7 @@ public class Board7_7 extends Gui implements ActionListener {
         panelzMenuGora.setLayout(new GridLayout(1,3));
         panelZGuzikami.setLayout(new GridLayout(7,7));
 
-        Board.addValueToButtons(plansza,listaGuzikow);
+        addValueToButtons(plansza,listaGuzikow);
         for ( int i = 0; i < 49; i++){
             listaGuzikow.get(i).addActionListener(this::actionPerformed);
         }
@@ -66,16 +66,55 @@ public class Board7_7 extends Gui implements ActionListener {
     }
 
 
+    public static void addValueToButtons(String plansza,ArrayList<JButton> listaGuzikow){
+        for(int i=0;i<plansza.length();i++){
+            if(plansza.toCharArray()[i] == '0'){
+                listaGuzikow.get(i).setBackground(Color.WHITE);
+            }else{
+                listaGuzikow.get(i).setText(String.valueOf(plansza.toCharArray()[i]));
+                listaGuzikow.get(i).setEnabled(false);
+            }
+        }
+
+    }
+    public static void change(ArrayList<JButton> listaGuzikow,char[] wartosciUzytkownika,int ktory){
+        listaGuzikow.get(ktory).setBackground(wartosciUzytkownika[ktory] == '0' ? Color.GRAY :
+                wartosciUzytkownika[ktory] == 'G' ? Color.BLACK : Color.WHITE);
+        if(wartosciUzytkownika[ktory] == '0'){
+            wartosciUzytkownika[ktory] = 'G';
+        }else if(wartosciUzytkownika[ktory] == 'G') {
+            wartosciUzytkownika[ktory] = 'B';
+        }else{
+            wartosciUzytkownika[ktory] = '0';
+        }
+
+    }
+    //dziala ale mozna zrobic te metody jako osobne klasy we will see i akurat w tej planysz sa 2 opd i nie wiem co z tym zrobimy
+    //czy bedziemy szukac plansz z 1 odp czy jakos modyfikowac to
+    public static void check(char[] wartosciUzytkownika,String odpowiedz){
+        String uzytkownik = "";
+        for(int i=0; i < 49; i++){
+            uzytkownik += String.valueOf(wartosciUzytkownika[i]);
+        }
+        JFrame tymczasowe = new JFrame();
+        if(odpowiedz.equals(uzytkownik)){
+            JOptionPane.showMessageDialog(tymczasowe,"Gratulacje");
+        }else{
+            JOptionPane.showMessageDialog(tymczasowe,"Próbuj dalej");
+        }
+    }
+
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == help){
             System.out.println("help"); //do zmiany
         }else if(e.getSource() == check){
-            Board.check(wartosciUzytkownika,odpowiedz);
+            check(wartosciUzytkownika,odpowiedz);
         }else if(e.getSource() == print){
             System.out.println("print"); //do zmiany
         }else if(e.getSource() == reset){
-            Board.addValueToButtons(plansza,listaGuzikow);
+            addValueToButtons(plansza,listaGuzikow);
             for(int i=0; i < 49; i++){
                 wartosciUzytkownika[i]= plansza.toCharArray()[i];
             }
@@ -85,7 +124,7 @@ public class Board7_7 extends Gui implements ActionListener {
 
         for(int i=0; i < 49; i++){
             if(e.getSource() == listaGuzikow.get(i)){
-                Board.change(listaGuzikow,wartosciUzytkownika,i);
+                change(listaGuzikow,wartosciUzytkownika,i);
                 System.out.println("guzik" + i + " "  +wartosciUzytkownika[i]);
                 break;
             }
