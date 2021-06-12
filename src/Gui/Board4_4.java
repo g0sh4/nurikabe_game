@@ -28,11 +28,11 @@ public class Board4_4 extends Gui implements ActionListener {
         this.plansza = plansza;
         this.odpowiedz = odpowiedz;
 
-        for ( int i = 1; i < 17; i++){
+        for ( int i = 0; i < plansza.length(); i++){
             listaGuzikow.add(new JButton() );
         }
         //ta petla nizej moze do zmiany
-        for(int i=0; i < 16; i++){
+        for(int i=0; i < plansza.length(); i++){
             wartosciUzytkownika[i]= plansza.toCharArray()[i];
         }
 
@@ -40,11 +40,11 @@ public class Board4_4 extends Gui implements ActionListener {
         panelzMenuGora.setLayout(new GridLayout(1,3));
         panelZGuzikami.setLayout(new GridLayout(4,4));
 
-        addValueToButtons(plansza,listaGuzikow);
-        for ( int i = 0; i < 16; i++){
+        Board.addValueToButtons(plansza,listaGuzikow);
+        for ( int i = 0; i < plansza.length(); i++){
             listaGuzikow.get(i).addActionListener(this::actionPerformed);
         }
-        for ( int i = 0; i < 16; i++){
+        for ( int i = 0; i < plansza.length(); i++){
             panelZGuzikami.add(listaGuzikow.get(i));
         }
 
@@ -66,55 +66,16 @@ public class Board4_4 extends Gui implements ActionListener {
     }
 
 
-    public static void addValueToButtons(String plansza,ArrayList<JButton> listaGuzikow){
-        for(int i=0;i<plansza.length();i++){
-            if(plansza.toCharArray()[i] == '0'){
-                listaGuzikow.get(i).setBackground(Color.WHITE);
-            }else{
-                listaGuzikow.get(i).setText(String.valueOf(plansza.toCharArray()[i]));
-                listaGuzikow.get(i).setEnabled(false);
-            }
-        }
-
-    }
-    public static void change(ArrayList<JButton> listaGuzikow,char[] wartosciUzytkownika,int ktory){
-        listaGuzikow.get(ktory).setBackground(wartosciUzytkownika[ktory] == '0' ? Color.GRAY :
-                wartosciUzytkownika[ktory] == 'G' ? Color.BLACK : Color.WHITE);
-        if(wartosciUzytkownika[ktory] == '0'){
-            wartosciUzytkownika[ktory] = 'G';
-        }else if(wartosciUzytkownika[ktory] == 'G') {
-            wartosciUzytkownika[ktory] = 'B';
-        }else{
-            wartosciUzytkownika[ktory] = '0';
-        }
-
-    }
-    //dziala ale mozna zrobic te metody jako osobne klasy we will see i akurat w tej planysz sa 2 opd i nie wiem co z tym zrobimy
-    //czy bedziemy szukac plansz z 1 odp czy jakos modyfikowac to
-    public static void check(char[] wartosciUzytkownika,String odpowiedz){
-        String uzytkownik = "";
-        for(int i=0; i < 16; i++){
-            uzytkownik += String.valueOf(wartosciUzytkownika[i]);
-        }
-        JFrame tymczasowe = new JFrame();
-        if(odpowiedz.equals(uzytkownik)){
-            JOptionPane.showMessageDialog(tymczasowe,"Gratulacje");
-        }else{
-            JOptionPane.showMessageDialog(tymczasowe,"Próbuj dalej");
-        }
-    }
-
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == help){
             System.out.println("help"); //do zmiany
         }else if(e.getSource() == check){
-            check(wartosciUzytkownika,odpowiedz);
+            Board.check(wartosciUzytkownika,odpowiedz);
         }else if(e.getSource() == print){
             System.out.println("print"); //do zmiany
         }else if(e.getSource() == reset){
-            addValueToButtons(plansza,listaGuzikow);
+            Board.addValueToButtons(plansza,listaGuzikow);
             for(int i=0; i < 16; i++){
                 wartosciUzytkownika[i]= plansza.toCharArray()[i];
             }
@@ -122,9 +83,9 @@ public class Board4_4 extends Gui implements ActionListener {
             System.out.println("save"); //do zmiany
         }
 
-        for(int i=0; i < 16; i++){
+        for(int i=0; i < listaGuzikow.size(); i++){
             if(e.getSource() == listaGuzikow.get(i)){
-                change(listaGuzikow,wartosciUzytkownika,i);
+                Board.change(listaGuzikow,wartosciUzytkownika,i);
                 System.out.println("guzik" + i + " "  +wartosciUzytkownika[i]);
                 break;
             }
