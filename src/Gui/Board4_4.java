@@ -1,18 +1,21 @@
 package Gui;
 
-import com.opencsv.exceptions.CsvException;
-import csv.OpenCsvData;
-import interaction.SelectBoardSize;
+import interaction.Print;
+import interaction.SaveFile;
 import interaction.Settings;
 
+import javax.imageio.ImageIO;
+import javax.management.remote.JMXConnectorFactory;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Board4_4 extends Gui implements ActionListener {
+public class Board4_4 extends Board implements ActionListener {
     JPanel panel = new JPanel();
     JPanel panelZMenuDol = new JPanel();
     JPanel panelZGuzikami= new JPanel();
@@ -78,7 +81,8 @@ public class Board4_4 extends Gui implements ActionListener {
         }else if(e.getSource() == check){
             Board.check(wartosciUzytkownika,odpowiedz);
         }else if(e.getSource() == print){
-            System.out.println("print"); //do zmiany
+            new Print(panelZGuzikami);
+
         }else if(e.getSource() == reset){
             Board.reset(wartosciUzytkownika,plansza,listaGuzikow);
         }else if(e.getSource() == save) {
