@@ -93,21 +93,21 @@ public class SelectBoardSize extends Gui.Gui {
             setVisible(false);
         }
         if(cb1.getSelectedItem() == "Easy"){
-            cb2.validate();
-            final DefaultComboBoxModel model = new DefaultComboBoxModel(openCsvData.getBoardNames().get(0));
-            cb2.setModel(model);
-            cb2.repaint();
+            cb2.removeAllItems();
+            //final DefaultComboBoxModel model = new DefaultComboBoxModel(openCsvData.getBoardNames().get(0));
+            //cb2.setModel(model);
+            for (int i = 0; i < openCsvData.getBoardNames().get(0).length ; i++) { cb2.addItem(openCsvData.getBoardNames().get(0)[i]); }
         }if(cb1.getSelectedItem() == "Medium"){
-            cb2.validate();
-            final DefaultComboBoxModel model = new DefaultComboBoxModel(openCsvData.getBoardNames().get(1));
+            cb2.removeAllItems();
+            //final DefaultComboBoxModel model = new DefaultComboBoxModel(openCsvData.getBoardNames().get(1));
 
-            cb2.setModel(model);
-            cb2.repaint();
+            //cb2.setModel(model);
+            for (int i = 0; i < openCsvData.getBoardNames().get(1).length ; i++) { cb2.addItem(openCsvData.getBoardNames().get(1)[i]); }
         }if(cb1.getSelectedItem() == "Hard"){
-            cb2.validate();
-            final DefaultComboBoxModel model = new DefaultComboBoxModel(openCsvData.getBoardNames().get(2));
-            cb2.setModel(model);
-            cb2.repaint();
+            cb2.removeAllItems();
+            //final DefaultComboBoxModel model = new DefaultComboBoxModel(openCsvData.getBoardNames().get(2));
+            //cb2.setModel(model);
+            for (int i = 0; i < openCsvData.getBoardNames().get(2).length ; i++) { cb2.addItem(openCsvData.getBoardNames().get(2)[i]); }
         }
 
         
