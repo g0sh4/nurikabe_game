@@ -20,11 +20,9 @@ public class SelectBoardSize extends Gui.Gui {
         try {
             if (Settings.getPath() == ""){
                 openCsvData = new OpenCsvData("csv_files/boards.csv");
-                System.out.printf("jol");
             }
             else {
                 openCsvData = new OpenCsvData(Settings.path + "/boards.csv");
-                System.out.printf("elo");
             }
 
         } catch (IOException e) {
@@ -112,24 +110,7 @@ public class SelectBoardSize extends Gui.Gui {
             }
 
             setVisible(false);
-        } // DO ZMIANY !!!!!!!!!!!!!
-        /*
-        if(cb1.getSelectedItem() == "Easy"){
-            cb2.removeAllItems();
-
-            for (int i = 0; i < openCsvData.getBoardNames().get(0).length ; i++) { cb2.addItem(openCsvData.getBoardNames().get(0)[i]); }
-        }if(cb1.getSelectedItem() == "Medium"){
-            cb2.removeAllItems();
-
-            for (int i = 0; i < openCsvData.getBoardNames().get(1).length ; i++) { cb2.addItem(openCsvData.getBoardNames().get(1)[i]); }
-        }if(cb1.getSelectedItem() == "Hard"){
-            cb2.removeAllItems();
-
-            //for (int i = 0; i < openCsvData.getBoardNames().get(2).length ; i++) { cb2.addItem(openCsvData.getBoardNames().get(2)[i]); }
         }
-
-         */
-
 
         
     }

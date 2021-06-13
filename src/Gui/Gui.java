@@ -5,8 +5,6 @@ import java.awt.*;
 
 public class Gui extends JFrame{
 
-    //public JFrame frame = new JFrame("Nurikabe");
-
     public int frameWidth = 400;
     public int frameHeight = 400;
 

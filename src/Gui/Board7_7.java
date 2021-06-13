@@ -38,7 +38,6 @@ public class Board7_7 extends Board implements ActionListener {
         for ( int i = 1; i < 50; i++){
             listaGuzikow.add(new JButton() );
         }
-        //ta petla nizej moze do zmiany
         for(int i=0; i < 49; i++){
             wartosciUzytkownika[i]= plansza.toCharArray()[i];
         }
