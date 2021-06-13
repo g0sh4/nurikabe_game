@@ -1,10 +1,7 @@
 package interaction;
 
-import Gui.Board4_4;
-import Gui.GuiMenu;
 import com.opencsv.exceptions.CsvException;
-import csv.OpenCsvData;
-import csv.OpenTxtData;
+import csv_txt.OpenTxtData;
 
 import javax.swing.*;
 import java.awt.*;
