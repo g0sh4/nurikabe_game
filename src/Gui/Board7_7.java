@@ -46,7 +46,7 @@ public class Board7_7 extends Board implements ActionListener {
         panelzMenuGora.setLayout(new GridLayout(1,3));
         panelZGuzikami.setLayout(new GridLayout(7,7));
 
-        Board.addValueToButtons(plansza,listaGuzikow);
+        addValueToButtons(plansza,listaGuzikow);
         for ( int i = 0; i < 49; i++){
             listaGuzikow.get(i).addActionListener(this::actionPerformed);
         }
@@ -75,20 +75,20 @@ public class Board7_7 extends Board implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == help){
-            Board.help(wartosciUzytkownika,odpowiedz);
+            help(wartosciUzytkownika,odpowiedz);
         }else if(e.getSource() == check){
-            Board.check(wartosciUzytkownika,odpowiedz);
+            check(wartosciUzytkownika,odpowiedz);
         }else if(e.getSource() == print){
             new Print(panelZGuzikami);
         }else if(e.getSource() == reset){
-            Board.reset(wartosciUzytkownika,plansza,listaGuzikow);
+            reset(wartosciUzytkownika,plansza,listaGuzikow);
         }else if(e.getSource() == save) {
-            Board.save(wartosciUzytkownika);
+            save(wartosciUzytkownika);
         }
 
         for(int i=0; i < 49; i++){
             if(e.getSource() == listaGuzikow.get(i)){
-                Board.change(listaGuzikow,wartosciUzytkownika,i);
+                change(listaGuzikow,wartosciUzytkownika,i);
                 break;
             }
         }
