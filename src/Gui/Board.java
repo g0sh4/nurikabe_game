@@ -48,9 +48,16 @@ public class Board extends Gui{
         }
         JFrame tymczasowe = new JFrame();
         if(odpowiedz.equals(uzytkownik)){
-            JOptionPane.showMessageDialog(tymczasowe,"Gratulacje");
+            JOptionPane.showMessageDialog(tymczasowe,"Gratulacje udało ci się rozwiązać plansze!!");
         }else{
-            JOptionPane.showMessageDialog(tymczasowe,"Próbuj dalej");
+            char[] odp = odpowiedz.toCharArray();
+            int i=0;
+            for(int x =0;x<odp.length;x++){
+                if(odp[x]!=wartosciUzytkownika[x]){
+                    i++;
+                }
+            }
+            JOptionPane.showMessageDialog(tymczasowe,i+" pól jest niepoprawnie zakolorowane");
         }
     }
     public static void help(char[] wartosciUzytkownika,String odpowiedz) {
