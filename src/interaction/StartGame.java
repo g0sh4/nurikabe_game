@@ -98,7 +98,7 @@ public class StartGame extends Gui.Gui{
         new AboutAuthors();
     }
     if(event.equals("ZAMKNIJ GRE")){
-        dispose(); //nie wiem czy tak bo konczy porgram po okolo 5 sekundach od znikniecia okna
+        dispose();
     }
     }
 }

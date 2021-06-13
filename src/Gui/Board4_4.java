@@ -42,7 +42,6 @@ public class Board4_4 extends Board implements ActionListener {
         for ( int i = 0; i < plansza.length(); i++){
             listaGuzikow.add(new JButton() );
         }
-        //ta petla nizej moze do zmiany
         for(int i=0; i < plansza.length(); i++){
             wartosciUzytkownika[i]= plansza.toCharArray()[i];
         }
@@ -51,7 +50,7 @@ public class Board4_4 extends Board implements ActionListener {
         panelzMenuGora.setLayout(new GridLayout(1,3));
         panelZGuzikami.setLayout(new GridLayout(4,4));
 
-        Board.addValueToButtons(plansza,listaGuzikow);
+        addValueToButtons(plansza,listaGuzikow);
         for ( int i = 0; i < plansza.length(); i++){
             listaGuzikow.get(i).addActionListener(this::actionPerformed);
         }
@@ -80,20 +79,20 @@ public class Board4_4 extends Board implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == help){
-            Board.help(wartosciUzytkownika,odpowiedz);
+            help(wartosciUzytkownika,odpowiedz);
         }else if(e.getSource() == check){
-            Board.check(wartosciUzytkownika,odpowiedz);
+            check(wartosciUzytkownika,odpowiedz);
         }else if(e.getSource() == print){
             new Print(panelZGuzikami);
 
         }else if(e.getSource() == reset){
-            Board.reset(wartosciUzytkownika,plansza,listaGuzikow);
+            reset(wartosciUzytkownika,plansza,listaGuzikow);
         }else if(e.getSource() == save) {
-            Board.save(wartosciUzytkownika);
+            save(wartosciUzytkownika);
         }
         for(int i=0; i < listaGuzikow.size(); i++){
             if(e.getSource() == listaGuzikow.get(i)){
-                Board.change(listaGuzikow,wartosciUzytkownika,i);
+                change(listaGuzikow,wartosciUzytkownika,i);
                 break;
             }
         }
