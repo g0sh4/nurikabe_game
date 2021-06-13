@@ -1,7 +1,7 @@
 package Gui;
 
 import com.opencsv.exceptions.CsvException;
-import csv.OpenCsvData;
+import csv_txt.OpenCsvData;
 import interaction.SelectBoardSize;
 import interaction.Settings;
 
