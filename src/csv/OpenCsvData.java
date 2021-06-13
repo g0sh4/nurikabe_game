@@ -11,7 +11,7 @@ import java.util.List;
 
 public class OpenCsvData {
 
-    public List<String[]> csvData = new ArrayList<>();
+    public List<String[]> csvData;
 
     private String[] easyNames;
     private String[] mediumNames;
@@ -70,7 +70,6 @@ public class OpenCsvData {
         return csvData.get(index)[2];
     }
 
-    //ta metoda dorobilem kopiuj wklej z tej wyzej tylko zmieniony index z 2 na 3
     public String getBoardSolution(String name, int x) {
         ArrayList<Integer> indexes = new ArrayList<>();
 
@@ -117,8 +116,5 @@ public class OpenCsvData {
         csvData.add(row, strings);
         writer.writeAll(csvData);
         writer.close();
-
-
-
     }
 }

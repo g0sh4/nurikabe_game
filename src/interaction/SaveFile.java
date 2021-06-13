@@ -1,12 +1,10 @@
 package interaction;
 
-import com.opencsv.exceptions.CsvException;
-
 import java.io.*;
 
 public class SaveFile {
 
-    public SaveFile() throws IOException, CsvException {
+    public SaveFile() {
         FileInputStream instream = null;
         FileOutputStream outstream = null;
 

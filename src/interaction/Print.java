@@ -14,17 +14,18 @@ public class Print {
         if (!Settings.getPath().equals("")){
             JFrame f = new JFrame();
             String printName = JOptionPane.showInputDialog(new JFrame("Wprowadź nazwę pliku"),"Podaj nazwę pliku: ");
+            if (printName != null){
+                try {
+                    BufferedImage img = new BufferedImage(panelZGuzikami.getWidth(), panelZGuzikami.getHeight(), BufferedImage.TYPE_INT_RGB);
+                    panelZGuzikami.paint(img.getGraphics());
+                    File outputfile = new File(Settings.getPath() + "/" + printName + ".png");
 
-            BufferedImage img = new BufferedImage(panelZGuzikami.getWidth(), panelZGuzikami.getHeight(), BufferedImage.TYPE_INT_RGB);
-            panelZGuzikami.paint(img.getGraphics());
-            File outputfile = new File(Settings.getPath() + "/" + printName + ".png");
-
-            try {
-                ImageIO.write(img, "png", outputfile);
-                JOptionPane.showMessageDialog(new JFrame("INFO"), "Zdjęcie pomyślenie zapisano!");
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-                JOptionPane.showMessageDialog(new JFrame("INFO"), "Upss coś poszło nie tak :(");
+                    ImageIO.write(img, "png", outputfile);
+                    JOptionPane.showMessageDialog(new JFrame("INFO"), "Zdjęcie pomyślenie zapisano!");
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                    JOptionPane.showMessageDialog(new JFrame("INFO"), "Upss coś poszło nie tak :(");
+                }
             }
         }
         else {

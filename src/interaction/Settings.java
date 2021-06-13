@@ -1,6 +1,8 @@
 package interaction;
 
 import Gui.Gui;
+import csv.OpenCsvData;
+import csv.OpenTxtData;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,15 +14,12 @@ public class Settings extends Gui {
     public JPanel panel1;
     public JPanel panel2;
     public JButton wybierzButton;
-    public JLabel label2;
     public JLabel label1;
     public JLabel label3;
     public JLabel wybranaSciezka;
     public JLabel wybranaSciezkaLabel;
 
     public static String path = "";
-    JComboBox comboBox;
-    public boolean autozapis;
 
     public Settings(){
         super();
@@ -32,24 +31,14 @@ public class Settings extends Gui {
 
         label3.setIcon(icon);
         panel1.add(label3);
-        panel = new JPanel();
+        panel = new JPanel(new BorderLayout());
         panel.setLayout(new GridLayout(3,2,9,9));
         label1 = new JLabel( "Wybór ścieżki zapisu: " );
         panel.add(label1);
-        wybierzButton = new JButton( "Wybierz ścieżkę" );
+        wybierzButton = new JButton( "Wybierz ścieżkę");
         wybierzButton.addActionListener(this::actionPerformed);
-        panel.add(wybierzButton);
-        comboBox = new JComboBox(  );
-        comboBox.setEditable(true);
-        comboBox.addItem(" ");
-        comboBox.addItem("ON");
-        comboBox.addItem("OFF");
-        comboBox.addActionListener(this::actionPerformed);
+        panel.add(wybierzButton, BorderLayout.CENTER);
 
-        label2 = new JLabel( "Autozapis: " );
-        panel.add(label2);
-        panel.add(comboBox);
-        panel.setBorder(BorderFactory.createEmptyBorder(10,80,10,100));
         panel2 = new JPanel();
         panel2.setLayout(new GridLayout( 1,2 ));
         panel2.setBorder(BorderFactory.createEmptyBorder(10,80,10,100));
@@ -74,23 +63,19 @@ public class Settings extends Gui {
 
             try{
                 path = choose.getSelectedFile().getPath();
+                OpenTxtData otd = new OpenTxtData();
+                otd.setPathInFile(path);
                 JOptionPane.showMessageDialog(null, "Wybrana ścieżka do zapisu: "+path);
                 wybranaSciezkaLabel.setText("Wybrana ścieżka do zapisu: "+path);
                 new SaveFile();
             }catch (Exception exception){
                 JOptionPane.showMessageDialog(null, "Nie wybrano ścieżki zapisu !");
             }
+        }
+    }
 
-        }
-        if(comboBox.getSelectedItem()=="ON"){
-            autozapis = true;
-            JOptionPane.showMessageDialog(null, "Włączono autozapis.");
-
-        }
-        if(comboBox.getSelectedItem()=="OFF"){
-            autozapis = false;
-            JOptionPane.showMessageDialog(null, "Wyłączono autozapis.");
-        }
+    public static void setPath(String path) {
+        Settings.path = path;
     }
 
     public static String getPath() {

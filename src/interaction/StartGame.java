@@ -2,10 +2,14 @@ package interaction;
 
 import Gui.Board4_4;
 import Gui.GuiMenu;
+import com.opencsv.exceptions.CsvException;
+import csv.OpenCsvData;
+import csv.OpenTxtData;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 
 public class StartGame extends Gui.Gui{
     public JPanel panelPicture;
@@ -17,8 +21,14 @@ public class StartGame extends Gui.Gui{
     public JButton autorzyButton;
     public JButton zamknijButton;
 
-    public StartGame(){
+    private OpenTxtData otd = new OpenTxtData();
+
+    public StartGame() throws IOException, CsvException {
         super();
+        if(otd.getPathIfExist() != null){
+            Settings.setPath(otd.getPathIfExist());
+        }
+
         ImageIcon icon = new ImageIcon( "png/nurikabe_4.png" );
         JLabel label = new JLabel();
 
@@ -59,13 +69,11 @@ public class StartGame extends Gui.Gui{
         panelButtons.setBorder(BorderFactory.createEmptyBorder(10,100,10,100));
         panelButtons.setBackground(new Color(253,245,230));
 
-        //JFrame frame = new JFrame( "Nurikabe" );
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         add(panelPicture, BorderLayout.NORTH);
         add(panelButtons, BorderLayout.CENTER);
 
 
-        //setMinimumSize(new Dimension(400, 600));
         getContentPane().setBackground(Color.pink);
         pack();
         setVisible(true);
@@ -92,6 +100,5 @@ public class StartGame extends Gui.Gui{
     if(event.equals("ZAMKNIJ GRE")){
         dispose(); //nie wiem czy tak bo konczy porgram po okolo 5 sekundach od znikniecia okna
     }
-
     }
 }
