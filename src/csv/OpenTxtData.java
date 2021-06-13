@@ -21,6 +21,7 @@ public class OpenTxtData {
     public void setPathInFile(String path) throws IOException {
         FileWriter fileWriter = new FileWriter(filePath);
         fileWriter.write(path);
+        fileWriter.close();
     }
 
     public String getPathIfExist(){

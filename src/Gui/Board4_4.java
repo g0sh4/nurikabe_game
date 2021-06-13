@@ -7,14 +7,10 @@ import interaction.SaveFile;
 import interaction.SelectBoardSize;
 import interaction.Settings;
 
-import javax.imageio.ImageIO;
-import javax.management.remote.JMXConnectorFactory;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
