@@ -4,13 +4,12 @@ import Gui.Board4_4;
 import Gui.Board5_5;
 import Gui.Board7_7;
 import com.opencsv.exceptions.CsvException;
-import csv.OpenCsvData;
+import csv_txt.OpenCsvData;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class SelectBoardSize extends Gui.Gui {
     OpenCsvData openCsvData;
@@ -19,7 +18,7 @@ public class SelectBoardSize extends Gui.Gui {
     {
         try {
             if (Settings.getPath() == ""){
-                openCsvData = new OpenCsvData("csv_files/boards.csv");
+                openCsvData = new OpenCsvData("csv_txt_files/boards.csv");
             }
             else {
                 openCsvData = new OpenCsvData(Settings.path + "/boards.csv");

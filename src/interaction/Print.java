@@ -1,8 +1,5 @@
 package interaction;
 
-import Gui.Board;
-import Gui.Board4_4;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.image.BufferedImage;

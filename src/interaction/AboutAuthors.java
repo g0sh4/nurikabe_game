@@ -1,7 +1,6 @@
 package interaction;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class AboutAuthors {
     public AboutAuthors(){
