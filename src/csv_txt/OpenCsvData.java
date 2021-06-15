@@ -1,10 +1,13 @@
-package csv;
+package csv_txt;
 
 import com.opencsv.*;
 import com.opencsv.exceptions.CsvException;
 import interaction.Settings;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

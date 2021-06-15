@@ -1,8 +1,7 @@
 package interaction;
 
 import Gui.Gui;
-import csv.OpenCsvData;
-import csv.OpenTxtData;
+import csv_txt.OpenTxtData;
 
 import javax.swing.*;
 import java.awt.*;

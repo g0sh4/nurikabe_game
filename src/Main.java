@@ -1,7 +1,4 @@
-import Gui.Gui;
-import Gui.GuiMenu;
 import com.opencsv.exceptions.CsvException;
-import csv.OpenCsvData;
 import interaction.StartGame;
 
 import java.io.IOException;

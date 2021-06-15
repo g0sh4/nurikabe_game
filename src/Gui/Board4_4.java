@@ -1,11 +1,6 @@
 package Gui;
 
-import com.opencsv.exceptions.CsvException;
-import csv.OpenCsvData;
 import interaction.Print;
-import interaction.SaveFile;
-import interaction.SelectBoardSize;
-import interaction.Settings;
 
 import javax.swing.*;
 import java.awt.*;

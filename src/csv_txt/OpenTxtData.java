@@ -1,4 +1,4 @@
-package csv;
+package csv_txt;
 
 
 import java.io.File;
@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class OpenTxtData {
 
     public String path;
-    private final String filePath = "csv_files/path.txt";
+    private final String filePath = "csv_txt_files/path.txt";
 
     public OpenTxtData() throws IOException {
         Scanner myReader = new Scanner(new File(filePath));

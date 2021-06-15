@@ -1,6 +1,9 @@
 package interaction;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class SaveFile {
 
@@ -14,7 +17,7 @@ public class SaveFile {
         }else{
 
             try{
-                File infile =new File("csv_files/boards.csv");
+                File infile =new File("csv_txt_files/boards.csv");
                 File outfile =new File(Settings.path + "/boards.csv");
                 outfile.createNewFile();
                 instream = new FileInputStream(infile);

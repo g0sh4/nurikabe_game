@@ -1,17 +1,11 @@
 package Gui;
 
-import com.opencsv.exceptions.CsvException;
-import csv.OpenCsvData;
 import interaction.Print;
-import interaction.SelectBoardSize;
-import interaction.Settings;
 
-import javax.management.remote.JMXConnectorFactory;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class Board7_7 extends Board implements ActionListener {
